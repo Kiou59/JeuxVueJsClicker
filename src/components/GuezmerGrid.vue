@@ -1,12 +1,12 @@
 <script setup>
- import { useCounterStore } from '/home/kiou/projects/MerguezClicker/MerguezClicker/src/stores/counter.js'
+ import { useCounterStore } from '/home/kiou/projects/MerguezTest/MerguezTest/src/stores/counter.js'
  const merguez=useCounterStore();
 
 </script>
 
 <template>
 
-<div id="main" class="grid grid-rows-5 grid-cols-5 min-w-max min-h-max">
+<div id="main" class="grid grid-rows-5 grid-cols-5 ">
     <div class='w-auto h-auto '>
         <img :src='merguez.srcs[0]' :class='merguez.classes[0]' @click='merguez.clickGuez(0)' >
     </div>
@@ -88,20 +88,8 @@
 </template>
 <style>
 img{
-
-    width:100%;
-    
-
+    height:10%;
+    width:10%
 }
-.w-auto {
-    border-top:solid grey;
-        border-bottom:solid grey;
-    background-size: auto 100%;
-    background-image:url("/./src/img/flame.webp");
-    background-repeat: round;
-}
-#main{
 
-   
-}
 </style>

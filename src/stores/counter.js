@@ -11,7 +11,7 @@ export const useCounterStore = defineStore({
         classeGuez: 'w-24 h-24 animate-spin',
         timer: -1,
         score: 0,
-        level: 3,
+        level: 0,
         srcChippo: '/./src/img/chipolata.png',
         srcBierre: '/./src/img/kronenbourg.png',
         srcChorizo: '/./src/img/chorizo.png',
@@ -23,7 +23,9 @@ export const useCounterStore = defineStore({
         classMain: 'blur-sm',
         classPopUp: '',
         hsPopUp: ['Bienvenue sur Merguez clicker!', 'niveau 1', 'niveau 2', 'niveau 3', 'niveau 4', 'niveau 5'],
+        popupsText:[`Votre objectif? Les merguez!Cliquez le plus vite possible pour augmenter votre score`,'Votre voisin Francis fait cuire des chipolattas. Ne vous interessez pas à ces saucisses fades','Le père de Francis, Roger, souffre de démance. Sans trop savoir pourquoi il vous jette des canettes de biere. Evitez les!',"Ce que vous detestez encore plus que votre beau frère, c'est le chorizo. Mais tiens voilà votre soeur qui arrive, toujours pas seul malheureusement",'','',''],
         hPopUp: '',
+        popUpText:'',
         setTime: null,
         scoreStep: [
             [100, 50, 20, 10, -10],
@@ -40,18 +42,19 @@ export const useCounterStore = defineStore({
     actions: {
         popUpStyle() {
             this.hPopUp = this.hsPopUp[this.level]
+            this.popUpText = this.popupsText[this.level]
         },
         increaseScore() {
-            this.setTime = () => {
+            this.setTime = setInterval(() => {
                 if (this.guezProgress < 100) {
-                    this.timer += 0.1
-                    this.timeLeft -= 0.1
+                    this.timer += 0.1;
+                    this.timeLeft -= 0.1;
                     console.log(this.timer)
                     if (this.timeLeft < 0) {
-                        this.guezProgress -= 1
+                        this.guezProgress -= 1;
                     }
                 }
-            }
+            },100)
         },
         increaseCombo() {
             if (this.comboMetter == 0) {
@@ -80,13 +83,14 @@ export const useCounterStore = defineStore({
                 this.srcs[m] = this.srcGuez;
                 this.classes[m] = this.classeGuez;
                 this.timer = -1
-                setInterval(this.setTime, 100)
+                this.increaseScore()
                 this.guezProgress = 10
             } else if (this.level != 0) {
                 this.classMain = '';
                 this.classPopUp = 'hidden'
                 this.guezProgress = 1
                 this.timer = -1
+                this.increaseScore()
             }
         },
         scoring() {
@@ -156,7 +160,7 @@ export const useCounterStore = defineStore({
                 }
             } else if (this.level == 1) {
                 if (this.srcs[n] == this.srcGuez) {
-                    this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                    this.srcs = ['/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png']
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     let m = (Math.floor(Math.random() * 25));
                     let c = (Math.floor(Math.random() * 25));
@@ -177,7 +181,7 @@ export const useCounterStore = defineStore({
                 }
             } else if (this.level == 2) {
                 if (this.srcs[n] == this.srcGuez) {
-                    this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                    this.srcs = ['/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png']
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     let m = 0
                     let c = 0
@@ -202,7 +206,7 @@ export const useCounterStore = defineStore({
                 }
             } else if (this.level == 3) {
                 if (this.srcs[n] == this.srcGuez) {
-                    this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                    this.srcs = ['/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png']
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     let m = 0
                     let c = 0
@@ -231,7 +235,7 @@ export const useCounterStore = defineStore({
                 }
             } else if (this.level == 4) {
                 if (this.srcs[n] == this.srcGuez) {
-                    this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                    this.srcs = ['/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png']
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     let m = 0
                     let c = 0
@@ -264,7 +268,7 @@ export const useCounterStore = defineStore({
                 }
             } else if (this.level == 5) {
                 if (this.srcs[n] == this.srcGuez) {
-                    this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                    this.srcs = ['/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png', '/./src/img/transparent.png']
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     let m = 0
                     let c = 0

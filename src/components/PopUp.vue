@@ -1,5 +1,5 @@
 <script setup>
- import { useCounterStore } from '/home/kiou/projects/MerguezClicker/MerguezClicker/src/stores/counter.js'
+ import { useCounterStore } from '/home/kiou/projects/MerguezTest/MerguezTest/src/stores/counter.js'
  const merguez=useCounterStore();
  merguez.popUpStyle()
 
@@ -10,8 +10,8 @@
 
 <div id='popUp'>
 <h1>{{merguez.hPopUp}}</h1>
-<p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
-
+<p>
+{{merguez.popUpText}}
 </p>
 <button @click=" merguez.start"> ok </button>
 </div>

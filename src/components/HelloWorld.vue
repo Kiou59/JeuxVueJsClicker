@@ -1,5 +1,5 @@
 <script setup>
- import { useCounterStore } from '/home/kiou/projects/MerguezClicker/MerguezClicker/src/stores/counter.js'
+ import { useCounterStore } from '/home/kiou/projects/MerguezTest/MerguezTest/src/stores/counter.js'
  const merguez=useCounterStore();
 
 </script>
