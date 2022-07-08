@@ -10,8 +10,8 @@
 
 <div id='popUp'>
 <h1>{{merguez.hPopUp}}</h1>
-<p>
-{{merguez.popUpText}}
+<p :v-model='merguez.popUpText'>
+
 </p>
 <button @click=" merguez.start"> ok </button>
 </div>
@@ -25,6 +25,7 @@
     left:10%;
     background-color : white;
     border: 4px solid;
+    text-align:center;
 
 }
 </style>

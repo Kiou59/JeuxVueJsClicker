@@ -7,46 +7,46 @@
 <template>
 
 <div id="main" class="grid grid-rows-5 grid-cols-5 ">
-    <div class='w-auto h-auto '>
+    <div class=' '>
         <img :src='merguez.srcs[0]' :class='merguez.classes[0]' @click='merguez.clickGuez(0)' >
     </div>
-    <div class='w-auto h-auto '>
+    <div class=''>
         <img :src='merguez.srcs[1]' :class='merguez.classes[1]' @click='merguez.clickGuez(1)'>
     </div>
-    <div class='w-auto h-auto'>
+    <div class=''>
         <img :src='merguez.srcs[2]' :class='merguez.classes[2]' @click='merguez.clickGuez(2)'>
         </div>
-    <div class='w-auto h-auto'>
+    <div class=''>
         <img :src='merguez.srcs[3]' :class='merguez.classes[3]' @click='merguez.clickGuez(3)'>
         </div>
-    <div class='w-auto h-auto'>
+    <div class=''>
         <img :src='merguez.srcs[4]' :class='merguez.classes[4]' @click='merguez.clickGuez(4)'>
     </div>
-    <div class='w-auto h-auto'>
+    <div class=''>
                 <img :src='merguez.srcs[5]' :class='merguez.classes[5]' @click='merguez.clickGuez(5)'>
     </div>
-    <div class='w-auto h-auto'>
+    <div class=''>
                 <img :src='merguez.srcs[6]' :class='merguez.classes[6]' @click='merguez.clickGuez(6)'>
     </div>
-    <div class='w-auto h-auto'>
+    <div class=''>
                 <img :src='merguez.srcs[7]' :class='merguez.classes[7]' @click='merguez.clickGuez(7)'>
     </div>
-    <div class='w-auto h-auto'>
+    <div class=''>
                 <img :src='merguez.srcs[8]' :class='merguez.classes[8]' @click='merguez.clickGuez(8)'>
     </div>
-    <div class='w-auto h-auto'>
+    <div class=''>
                 <img :src='merguez.srcs[9]' :class='merguez.classes[9]' @click='merguez.clickGuez(9)'>
     </div>
-    <div class='w-auto h-auto'>
+    <div class=''>
                 <img :src='merguez.srcs[10]' :class='merguez.classes[10]' @click='merguez.clickGuez(10)'>
     </div>
-    <div class='w-auto h-auto'>
+    <div class=''>
                 <img :src='merguez.srcs[11]' :class='merguez.classes[11]' @click='merguez.clickGuez(11)'>
     </div>
-    <div class='w-auto h-auto'>
+    <div class=''>
                 <img :src='merguez.srcs[12]' :class='merguez.classes[12]' @click='merguez.clickGuez(12)'>
     </div>
-    <div class='w-auto h-auto'>
+    <div class=''>
                 <img :src='merguez.srcs[13]' :class='merguez.classes[13]' @click='merguez.clickGuez(13)'>
     </div>
     <div class='w-auto h-auto'>
@@ -88,8 +88,19 @@
 </template>
 <style>
 img{
-    height:10%;
-    width:10%
+    height:100%;
+    width:100%;
 }
 
+
+#main > div{
+
+    border: 2px solid black;
+    
+}
+#main{
+    width: 50%;
+    margin:auto;
+    height:100%;
+}
 </style>
