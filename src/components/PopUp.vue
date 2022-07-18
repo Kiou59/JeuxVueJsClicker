@@ -4,6 +4,12 @@
  merguez.popUpStyle()
 
 </script>
+<!-- popUp de lancement de jeu :
+-affichage des infos 
+-start game button -->
+<!-- Amelioration a venir
+-ajout de texte entre chaque niveau 
+-menu pause spacebar-->
 
 <template>
 
