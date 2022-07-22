@@ -10,6 +10,7 @@
         <div>
           {{merguez.comboMetter}}
         Score:{{merguez.score}}
+        {{merguez.add}}
         </div>
         <div>Timer
             <meter min='0' low='1' high='2' max="3 " :value="merguez.timeLeft " ></meter>
@@ -30,4 +31,8 @@
 </header>
 </template>
 <style>
+header{
+  background-color:black;
+  color:white;
+}
 </style>

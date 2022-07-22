@@ -29,7 +29,8 @@
     top:40%;
     right:10%;
     left:10%;
-    background-color : white;
+    background-color : red;
+    color: white;
     border: 4px solid;
     text-align:center;
 

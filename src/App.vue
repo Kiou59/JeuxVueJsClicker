@@ -18,5 +18,8 @@ import PopUp from '@/components/PopUp.vue'
 </template>
 
 <style>
+body{
+background-color:black;
 
+}
 </style>

@@ -12,25 +12,36 @@ popUpText:'',
 hsPopUp: ['Bienvenue sur Merguez clicker!', 'niveau 1', 'niveau 2', 'niveau 3', 'niveau 4', 'niveau 5'],
 popupsText:[`Votre objectif? Les merguez!Cliquez le plus vite possible pour augmenter votre score`,'Votre voisin Francis fait cuire des chipolattas. Ne vous interessez pas à ces saucisses fades','Le père de Francis, Roger, souffre de démance. Sans trop savoir pourquoi il vous jette des canettes de biere. Evitez les!',"Ce que vous detestez encore plus que votre beau frère, c'est le chorizo. Mais tiens voilà votre soeur qui arrive, toujours pas seul malheureusement",'','',''], 
 // setup de la grille
+//  tableau de classes initiale de toutes les div
 classes: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-classeGuez: 'w-24 h-24 animate-spin',
+// classe de l'item qui apparait
+classeGuez: 'animate-spin h-full w-full',
+// tableau des sources d'image appliquer à la grille
 srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-// image nécéssaires
+// sources d'image nécéssaires
         srcGuez: '/./src/img/merguez.png',
         srcChippo: '/./src/img/chipolata.png',
         srcBierre: '/./src/img/kronenbourg.png',
         srcChorizo: '/./src/img/chorizo.png',
         srcGaviscon: '/./src/img/maalox.png',
         srcSalade: '/./src/img/Salade.png',
+
 // temps
+// valeur de progression dans le niveau initialisé à 10 à cause du malus de temp
         guezProgress: 10,
+// timer progressif
         timer: -1,
+// valeur injecter dans la balise progress du timer
         timeLeft: 3,
+// variable null dans laquelle on injecte notre interval qui s'appliquera à timer et timeLeft
         setTime: null,
 // score
+// stock du score avant ajout de points
+        oldScore:0,
         score: 0,
         level: 0,
         comboMetter: 0,
+// tableau de point en fonction du niveau
         scoreStep: [
             [100, 50, 20, 10, -10],
             [500, 200, 10050, -10],
@@ -38,11 +49,12 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             [2000, 1000, 500, 200, -10],
             [5000, 2000, 1000, 500, -10],
             [1000, 5000, 2000, 1000, -10]
-        ]
+        ],
+        add:null
     }),
-    getters: {
-        doubleCount: (state) => state.counter * 2
-    },
+    // getters: {
+    //     doubleCount: (state) => state.counter * 2
+    // },
     actions: {
         // affiche la pop up, son niveau actuel et le texte en fonction du niveau en cour
         popUpStyle() {
@@ -69,7 +81,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.classMain = '';
                 this.classPopUp = 'hidden'
                 this.srcs[m] = this.srcGuez;
-                this.classes[m] = this.classeGuez;
+                this.classes[m] = this.classeGuez ;
                 this.timer = -1
                 this.increaseScore()
                 this.guezProgress = 10
@@ -83,15 +95,15 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
         },
 // scoring : check le temp de réaction 4 valeurs :selon ce temps, pioché dans le tab scorStep[] à l'index correspondant au niveau
         scoring() {
-
+            this.oldScore= this.score
             if (this.timer <= 0.8) {
                 this.score += this.scoreStep[this.level][0]
                 this.timer = 0
                 this.timeLeft = 3
+                this.increaseCombo()
 // bonus comboMetter si rapide deux fois de suite
-                if (this.score == (this.scoreStep[this.level][0])) {
+                if (((this.score)-(this.oldScore) )== (this.scoreStep[this.level][0])) {
                     this.comboMetter += 1
-                    this.increaseCombo()
                 }
             } else if (this.timer < 1.0 && this.timer > 0.8) {
                 this.score += this.scoreStep[this.level][1]
@@ -162,14 +174,24 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 if (this.srcs[n] == this.srcGuez) {
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                    this.classes[n] = ' bg-green-600 ';
+                    setTimeout(()=>{if(this.classes[n]!=this.classes[m]){this.classes[n] = ''}else{this.classes[m] = this.classeGuez}},100)
                     let m = (Math.floor(Math.random() * 25));
-                    console.log(m);
-                    this.srcs[m] = this.srcGuez;
+                    while(m==n){
+                        m = (Math.floor(Math.random() * 25));}
+                    this.srcs[m] = this.srcGuez ;
                     this.classes[m] = this.classeGuez;
+
+                    
+
                     this.guezProgress += 20;
+                    
+                    
                     this.levelUp()
                     this.scoring()
                 } else if (this.srcs[n] != this.srcGuez) {
+                    this.classes[n] = ' bg-red-600 ';
+                    setTimeout(()=>{this.classes[n] = ''},100)
                     this.score -= 100;
                     this.guezProgress -= 10
                 }
@@ -177,6 +199,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 if (this.srcs[n] == this.srcGuez) {
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                    this.classes[n] = 'bg-green-600';
+                    setTimeout(()=>{if(this.classes[n]!=this.classes[m]){this.classes[n] = ''}else{this.classes[m] = this.classeGuez}},100)
                     let m = (Math.floor(Math.random() * 25));
                     let c = (Math.floor(Math.random() * 25));
                     while (m == c) {
@@ -190,14 +214,20 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.guezProgress += 20;
                     this.levelUp()
                     this.scoring()
-                } else if (this.srcs[n] != this.srcGuez) {
+                } else if (this.srcs[n] !== this.srcGuez) {
+                    this.classes[n] = 'bg-red-600';
+                    setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
+                    
                     this.score -= 100;
-                    this.guezProgress -= 10
+                    this.guezProgress -= 10;
                 }
             } else if (this.level == 2) {
                 if (this.srcs[n] == this.srcGuez) {
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+
+                    this.classes[n] = ' bg-green-600 ';
+                    setTimeout(()=>{if(this.classes[n]!==this.classes[m]){this.classes[n] = ''}else{this.classes[m] = this.classeGuez}},100)
                     let m = 0
                     let c = 0
                     let b = 0
@@ -215,14 +245,19 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.guezProgress += 20;
                     this.levelUp()
                     this.scoring()
-                } else if (this.srcs[n] != this.srcGuez) {
+                } else if (this.srcs[n] !== this.srcGuez) {
+                    this.classes[n] = ' bg-red-600';
+                    setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
                     this.score -= 100;
-                    this.guezProgress -= 10
+                    this.guezProgress -= 10;
                 }
             } else if (this.level == 3) {
                 if (this.srcs[n] == this.srcGuez) {
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+
+                    this.classes[n] = ' bg-green-600 ';
+                    setTimeout(()=>{if(this.classes[n]!=this.classes[m]){this.classes[n] = ''}else{this.classes[m] = this.classeGuez}},100)
                     let m = 0
                     let c = 0
                     let b = 0
@@ -252,6 +287,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 if (this.srcs[n] == this.srcGuez) {
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                    this.classes[n] = ' bg-green-600 ';
+                    setTimeout(()=>{if(this.classes[n]!=this.classes[m]){this.classes[n] = ''}else{this.classes[m] = this.classeGuez}},100)
                     let m = 0
                     let c = 0
                     let b = 0
@@ -285,6 +322,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 if (this.srcs[n] == this.srcGuez) {
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                    this.classes[n] = ' bg-green-600 ';
+                    setTimeout(()=>{if(this.classes[n]!=this.classes[m]){this.classes[n] = ''}else{this.classes[m] = this.classeGuez}},100)
                     let m = 0
                     let c = 0
                     let b = 0
@@ -314,7 +353,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.guezProgress += 20;
                     this.levelUp()
                     this.scoring()
-                } else if (this.srcs[n] != this.srcGuez) {
+                } else if (this.srcs[n] !== this.srcGuez) {
                     this.score -= 100;
                     this.guezProgress -= 10
                 }
