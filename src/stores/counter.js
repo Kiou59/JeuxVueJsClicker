@@ -9,8 +9,8 @@ classPopUp: '',
 hPopUp: '',
 popUpText:'',
 // textes du popUp
-hsPopUp: ['Bienvenue sur Merguez clicker!', 'niveau 1', 'niveau 2', 'niveau 3', 'niveau 4', 'niveau 5'],
-popupsText:[`Votre objectif? Les merguez!Cliquez le plus vite possible pour augmenter votre score`,'Votre voisin Francis fait cuire des chipolattas. Ne vous interessez pas à ces saucisses fades','Le père de Francis, Roger, souffre de démance. Sans trop savoir pourquoi il vous jette des canettes de biere. Evitez les!',"Ce que vous detestez encore plus que votre beau frère, c'est le chorizo. Mais tiens voilà votre soeur qui arrive, toujours pas seul malheureusement",'','',''], 
+hsPopUp: ['Bienvenue sur Merguez madness!', 'niveau 1', 'niveau 2', 'niveau 3', 'niveau 4', 'niveau 5'],
+popupsText:[`Votre objectif? Les merguez!Cliquez le plus vite possible pour augmenter votre score`,'Votre voisin Francis fait cuire des chipolattas. Ne vous interessez pas à ces saucisses fades',"Le père de Francis, Roger, est tres bavard. Malgré votre désinteret non dissumulé, il tient à vous convaincre que les chips à l'ancienne sont bien meilleures que les ordinaire. Vous devez l'ignorer et rester concentré sur les merguez! ","Horreur! Des chorizos! ils cuisent des chorizos! Cette fete des voisins vous permet de voir le vrai visage de ces dégénérés.",'Non mais là! de la salade?!  Restez cordial mais concentré','',''], 
 // setup de la grille
 //  tableau de classes initiale de toutes les div
 classes: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -21,7 +21,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
 // sources d'image nécéssaires
         srcGuez: '/./src/img/merguez.png',
         srcChippo: '/./src/img/chipolata.png',
-        srcBierre: '/./src/img/kronenbourg.png',
+        srcChips: '/./src/img/chips.png',
         srcChorizo: '/./src/img/chorizo.png',
         srcGaviscon: '/./src/img/maalox.png',
         srcSalade: '/./src/img/Salade.png',
@@ -101,10 +101,9 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.timer = 0
                 this.timeLeft = 3
                 this.increaseCombo()
+                this.comboMetter += 1
 // bonus comboMetter si rapide deux fois de suite
-                if (((this.score)-(this.oldScore) )== (this.scoreStep[this.level][0])) {
-                    this.comboMetter += 1
-                }
+
             } else if (this.timer < 1.0 && this.timer > 0.8) {
                 this.score += this.scoreStep[this.level][1]
                 this.timer = 0
@@ -134,16 +133,16 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.timer = -1
             } else if (this.comboMetter == 1) {
                 this.timer = -0.8
-                this.score = (this.score * 1.1)
+                this.score = parseInt((this.score * 1.1))
             } else if (this.comboMetter == 2) {
                 this.timer = -0.6
-                this.score = (this.score * 1.2)
+                this.score =parseInt( (this.score * 1.2))
             } else if (this.comboMetter == 3) {
                 this.timer = -0.3
-                this.score = (this.score * 1.5)
+                this.score = parseInt((this.score * 1.5))
             } else if (this.comboMetter >= 4) {
                 this.timer = 0
-                this.score = (this.score * 1.5)
+                this.score = parseInt((this.score * 1.5))
             }
         },
 // arret du timer et apparition du popUp lors de la monté de niveau
@@ -240,7 +239,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.classes[m] = this.classeGuez;
                     this.srcs[c] = this.srcChippo;
                     this.classes[c] = this.classeGuez;
-                    this.srcs[b] = this.srcBierre;
+                    this.srcs[b] = this.srcChips;
                     this.classes[b] = this.classeGuez;
                     this.guezProgress += 20;
                     this.levelUp()
@@ -272,7 +271,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.classes[m] = this.classeGuez;
                     this.srcs[c] = this.srcChippo;
                     this.classes[c] = this.classeGuez;
-                    this.srcs[b] = this.srcBierre;
+                    this.srcs[b] = this.srcChips;
                     this.classes[b] = this.classeGuez;
                     this.srcs[ch] = this.srcChorizo;
                     this.classes[ch] = this.classeGuez;
@@ -305,7 +304,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.classes[m] = this.classeGuez;
                     this.srcs[c] = this.srcChippo;
                     this.classes[c] = this.classeGuez;
-                    this.srcs[b] = this.srcBierre;
+                    this.srcs[b] = this.srcChips;
                     this.classes[b] = this.classeGuez;
                     this.srcs[ch] = this.srcChorizo;
                     this.classes[ch] = this.classeGuez;
@@ -342,7 +341,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.classes[m] = this.classeGuez;
                     this.srcs[c] = this.srcChippo;
                     this.classes[c] = this.classeGuez;
-                    this.srcs[b] = this.srcBierre;
+                    this.srcs[b] = this.srcChips;
                     this.classes[b] = this.classeGuez;
                     this.srcs[ch] = this.srcChorizo;
                     this.classes[ch] = this.classeGuez;

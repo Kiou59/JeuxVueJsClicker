@@ -16,8 +16,8 @@
 
 <div id='popUp'>
 <h1>{{merguez.hPopUp}}</h1>
-<p :v-model='merguez.popUpText'>
-
+<p >
+{{merguez.popUpText}}
 </p>
 <button @click=" merguez.start"> ok </button>
 </div>

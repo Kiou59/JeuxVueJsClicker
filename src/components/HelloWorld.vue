@@ -13,7 +13,7 @@
         {{merguez.add}}
         </div>
         <div>Timer
-            <meter min='0' low='1' high='2' max="3 " :value="merguez.timeLeft " ></meter>
+            <progress  max="3 " :value="merguez.timeLeft " ></progress>
     </div>
         </div>
     <div id='center'>
@@ -26,7 +26,7 @@
   </div>
     <div id='infoRight'>
       <div>Niveau:{{merguez.level}}</div>
-            <meter min='0' low='33' high='66' max="100 " :value="merguez.guezProgress " ></meter>
+            <progress  max="100 " :value="merguez.guezProgress " ></progress>
     </div>
 </header>
 </template>
@@ -35,4 +35,28 @@ header{
   background-color:black;
   color:white;
 }
+h1,h2,div {
+  animation: color-change 1s infinite;
+}
+
+@keyframes color-change {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: red; }
+}
+progress {}
+	/* ici les styles généraux */
+
+progress::-webkit-progress-bar { 
+	/* ici les styles généraux pour Webkit */
+}
+progress::-webkit-progress-value {  
+	/* styles de barre d'avancement pour Webkit */
+}  
+progress::-moz-progress-bar { 
+	/* styles de barre d'avancement pour Firefox */
+    animation: color-change 1s infinite;
+}
+
+
 </style>
