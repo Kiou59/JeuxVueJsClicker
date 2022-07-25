@@ -170,10 +170,11 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 clearInterval(this.setTime)
                 this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                 this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                this.hPopUp="Game Over"
                 if(this.score>0){
-                    this.hPopUp=`Vous avez perdu votre score est de ${this.score} point`
+                    this.popUpText=`Vous avez perdu votre score est de ${this.score} point`
                 }else{
-                    this.hPopUp="Vous avez perdu avec un score négatif. Peut-etre n'avez vous pas bien compris le but du jeux"
+                    this.popUpText="Vous avez perdu avec un score négatif. Peut-etre n'avez vous pas bien compris le but du jeux"
                 }
             }
         },
