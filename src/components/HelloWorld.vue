@@ -59,7 +59,7 @@ progress::-moz-progress-bar {
 }
 @media (min-height: 680px), screen and (orientation: portrait) { 
 header{
-  margin-bottom:10%;
+  margin-bottom:20%;
 }}
 
 </style>

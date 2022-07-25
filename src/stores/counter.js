@@ -9,8 +9,8 @@ classPopUp: '',
 hPopUp: '',
 popUpText:'',
 // textes du popUp
-hsPopUp: ['Bienvenue sur Merguez madness!', 'niveau 1', 'niveau 2', 'niveau 3', 'niveau 4', 'niveau 5'],
-popupsText:[`Votre objectif? Les merguez!Cliquez le plus vite possible pour augmenter votre score`,'Votre voisin Francis fait cuire des chipolattas. Ne vous interessez pas à ces saucisses fades',"Le père de Francis, Roger, est tres bavard. Malgré votre désinteret non dissumulé, il tient à vous convaincre que les chips à l'ancienne sont bien meilleures que les ordinaire. Vous devez l'ignorer et rester concentré sur les merguez! ","Horreur! Des chorizos! ils cuisent des chorizos! Cette fete des voisins vous permet de voir le vrai visage de ces dégénérés.",'Non mais là! de la salade?!  Restez cordial mais concentré','',''], 
+hsPopUp: ['Bienvenue sur Merguez madness!', 'niveau 1', 'niveau 2', 'niveau 3', 'niveau 4', 'niveau 5','niveau 6','niveau 7'],
+popupsText:[`Votre objectif? Les merguez!Cliquez le plus vite possible pour augmenter votre score`,'Votre voisin Francis fait cuire des chipolattas. Ne vous interessez pas à ces saucisses fades',"Le père de Francis, Roger, est tres bavard. Malgré votre désinteret non dissumulé, il tient à vous convaincre que les chips à l'ancienne sont bien meilleures que les ordinaire. Vous devez l'ignorer et rester concentré sur les merguez! ","Horreur! Des chorizos! ils cuisent des chorizos! Cette fete des voisins vous permet de voir le vrai visage de ces dégénérés.",'Non mais là! de la salade?!  Restez cordial mais concentré',"Et voilà Roger qui remet ça!Ce qui ci c'est sur la qualité des merguez de grande surface et ses remontées acides chronique. Vous observez le foyer en vous disant qu'il pourrait sous peu se plaindre d'autres type de brulures ",'Ca va pas du tout! Votre estomac vous brule mais vous ne voulez pas donner raison à Roger. Alternez Merguez et Maalox pour esperer voir le niveau 7',"Vous vous sentez vaguement mieux. Tentez de manger deux merguez pour un maalox, on verra bien ce que ça donne","Votre vie ne tient plus qu'à un fil si vous avalez autre chose que du Maalox c'est perdu pour vous"], 
 // setup de la grille
 //  tableau de classes initiale de toutes les div
 classes: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -48,9 +48,13 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             [1000, 500, 200, 100, -10],
             [2000, 1000, 500, 200, -10],
             [5000, 2000, 1000, 500, -10],
+            [1000, 5000, 2000, 1000, -10],
+            [1000, 5000, 2000, 1000, -10],
+            [1000, 5000, 2000, 1000, -10],
             [1000, 5000, 2000, 1000, -10]
         ],
-        add:null
+        add:null,
+        switch:0,
     }),
     // getters: {
     //     doubleCount: (state) => state.counter * 2
@@ -67,7 +71,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 if (this.guezProgress < 100) {
                     this.timer += 0.1;
                     this.timeLeft -= 0.1;
-                    console.log(this.timer)
+                    
                     if (this.timeLeft < 0) {
                         this.guezProgress -= 1;
                     }
@@ -174,6 +178,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
         },
         clickGuez(n) {
             this.gameOver()
+            console.log(this.switch)
             if (this.level == 0) {
                 if (this.srcs[n] == this.srcGuez) {
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -284,6 +289,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.levelUp()
                     this.scoring()
                 } else if (this.srcs[n] != this.srcGuez) {
+                    this.classes[n] = ' bg-red-600';
+                    setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
                     this.score -= 100;
                     this.guezProgress -= 10
                 }
@@ -319,6 +326,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.levelUp()
                     this.scoring()
                 } else if (this.srcs[n] != this.srcGuez) {
+                    this.classes[n] = ' bg-red-600';
+                    setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
                     this.score -= 100;
                     this.guezProgress -= 10
                 }
@@ -358,10 +367,225 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.levelUp()
                     this.scoring()
                 } else if (this.srcs[n] !== this.srcGuez) {
+                    this.classes[n] = ' bg-red-600';
+                    setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
                     this.score -= 100;
                     this.guezProgress -= 10
                 }
+            }else if (this.level == 6 && this.switch==0) {
+                
+                if (this.srcs[n] == this.srcGuez) {
+                    this.switch+=1
+                    this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                    this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                    this.classes[n] = ' bg-green-600 ';
+                    setTimeout(()=>{if(this.classes[n]!=this.classes[m]){this.classes[n] = ''}else{this.classes[m] = this.classeGuez}},100)
+                    let m = 0
+                    let c = 0
+                    let b = 0
+                    let ch = 0
+                    let s = 0
+                    let ma = 0
+                    while (m == c || m == b || b == c || m == ch || b == ch || c == ch || s == m || s == c || s == b || s == ch || ma == m || ma == b || ma == c || ma == ch || ma == s) {
+                        m = (Math.floor(Math.random() * 25));
+                        c = (Math.floor(Math.random() * 25));
+                        b = (Math.floor(Math.random() * 25));
+                        ch = (Math.floor(Math.random() * 25));
+                        s = (Math.floor(Math.random() * 25));
+                        ma = (Math.floor(Math.random() * 25));
+                    }
+                    this.srcs[m] = this.srcGuez;
+                    this.classes[m] = this.classeGuez;
+                    this.srcs[c] = this.srcChippo;
+                    this.classes[c] = this.classeGuez;
+                    this.srcs[b] = this.srcChips;
+                    this.classes[b] = this.classeGuez;
+                    this.srcs[ch] = this.srcChorizo;
+                    this.classes[ch] = this.classeGuez;
+                    this.srcs[s] = this.srcSalade;
+                    this.classes[s] = this.classeGuez;
+                    this.srcs[ma] = this.srcGaviscon;
+                    this.classes[ma] = this.classeGuez;
+                    this.guezProgress += 20;
+                    this.levelUp()
+                    this.scoring()
+
+                } else if (this.srcs[n] !== this.srcGuez) {
+                    this.classes[n] = ' bg-red-600';
+                    setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
+                    this.score -= 100;
+                    this.guezProgress -= 10
+                }} else if(this.level == 6 && this.switch==1){
+                    if (this.srcs[n] == this.srcGaviscon) {
+                        this.switch-=1
+                        this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                        this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                        this.classes[n] = ' bg-green-600 ';
+                        setTimeout(()=>{if(this.classes[n]!=this.classes[m]){this.classes[n] = ''}else{this.classes[m] = this.classeGuez}},100)
+                        let m = 0
+                        let c = 0
+                        let b = 0
+                        let ch = 0
+                        let s = 0
+                        let ma = 0
+                        while (m == c || m == b || b == c || m == ch || b == ch || c == ch || s == m || s == c || s == b || s == ch || ma == m || ma == b || ma == c || ma == ch || ma == s) {
+                            m = (Math.floor(Math.random() * 25));
+                            c = (Math.floor(Math.random() * 25));
+                            b = (Math.floor(Math.random() * 25));
+                            ch = (Math.floor(Math.random() * 25));
+                            s = (Math.floor(Math.random() * 25));
+                            ma = (Math.floor(Math.random() * 25));
+                        }
+                        this.srcs[m] = this.srcGuez;
+                        this.classes[m] = this.classeGuez;
+                        this.srcs[c] = this.srcChippo;
+                        this.classes[c] = this.classeGuez;
+                        this.srcs[b] = this.srcChips;
+                        this.classes[b] = this.classeGuez;
+                        this.srcs[ch] = this.srcChorizo;
+                        this.classes[ch] = this.classeGuez;
+                        this.srcs[s] = this.srcSalade;
+                        this.classes[s] = this.classeGuez;
+                        this.srcs[ma] = this.srcGaviscon;
+                        this.classes[ma] = this.classeGuez;
+                        this.guezProgress += 20;
+                        this.levelUp()
+                        this.scoring()
+                    } else if (this.srcs[n] !== this.srcGaviscon) {
+                        this.classes[n] = ' bg-red-600';
+                    setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
+                        this.score -= 100;
+                        this.guezProgress -= 10
+                    }
+                }else if (this.level == 7 && this.switch<2) {
+                
+                    if (this.srcs[n] == this.srcGuez) {
+                        this.switch+=1
+                        this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                        this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                        this.classes[n] = ' bg-green-600 ';
+                        setTimeout(()=>{if(this.classes[n]!=this.classes[m]){this.classes[n] = ''}else{this.classes[m] = this.classeGuez}},100)
+                        let m = 0
+                        let c = 0
+                        let b = 0
+                        let ch = 0
+                        let s = 0
+                        let ma = 0
+                        while (m == c || m == b || b == c || m == ch || b == ch || c == ch || s == m || s == c || s == b || s == ch || ma == m || ma == b || ma == c || ma == ch || ma == s) {
+                            m = (Math.floor(Math.random() * 25));
+                            c = (Math.floor(Math.random() * 25));
+                            b = (Math.floor(Math.random() * 25));
+                            ch = (Math.floor(Math.random() * 25));
+                            s = (Math.floor(Math.random() * 25));
+                            ma = (Math.floor(Math.random() * 25));
+                        }
+                        this.srcs[m] = this.srcGuez;
+                        this.classes[m] = this.classeGuez;
+                        this.srcs[c] = this.srcChippo;
+                        this.classes[c] = this.classeGuez;
+                        this.srcs[b] = this.srcChips;
+                        this.classes[b] = this.classeGuez;
+                        this.srcs[ch] = this.srcChorizo;
+                        this.classes[ch] = this.classeGuez;
+                        this.srcs[s] = this.srcSalade;
+                        this.classes[s] = this.classeGuez;
+                        this.srcs[ma] = this.srcGaviscon;
+                        this.classes[ma] = this.classeGuez;
+                        this.guezProgress += 20;
+                        this.levelUp()
+                        this.scoring()
+    
+                    } else if (this.srcs[n] !== this.srcGuez) {
+                        this.classes[n] = ' bg-red-600';
+                        setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
+                        this.score -= 100;
+                        this.guezProgress -= 10
+                    }} else if(this.level == 7 && this.switch==2){
+                        if (this.srcs[n] == this.srcGaviscon) {
+                            this.switch=0
+                            this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                            this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                            this.classes[n] = ' bg-green-600 ';
+                            setTimeout(()=>{if(this.classes[n]!=this.classes[m]){this.classes[n] = ''}else{this.classes[m] = this.classeGuez}},100)
+                            let m = 0
+                            let c = 0
+                            let b = 0
+                            let ch = 0
+                            let s = 0
+                            let ma = 0
+                            while (m == c || m == b || b == c || m == ch || b == ch || c == ch || s == m || s == c || s == b || s == ch || ma == m || ma == b || ma == c || ma == ch || ma == s) {
+                                m = (Math.floor(Math.random() * 25));
+                                c = (Math.floor(Math.random() * 25));
+                                b = (Math.floor(Math.random() * 25));
+                                ch = (Math.floor(Math.random() * 25));
+                                s = (Math.floor(Math.random() * 25));
+                                ma = (Math.floor(Math.random() * 25));
+                            }
+                            this.srcs[m] = this.srcGuez;
+                            this.classes[m] = this.classeGuez;
+                            this.srcs[c] = this.srcChippo;
+                            this.classes[c] = this.classeGuez;
+                            this.srcs[b] = this.srcChips;
+                            this.classes[b] = this.classeGuez;
+                            this.srcs[ch] = this.srcChorizo;
+                            this.classes[ch] = this.classeGuez;
+                            this.srcs[s] = this.srcSalade;
+                            this.classes[s] = this.classeGuez;
+                            this.srcs[ma] = this.srcGaviscon;
+                            this.classes[ma] = this.classeGuez;
+                            this.guezProgress += 20;
+                            this.levelUp()
+                            this.scoring()
+                        } else if (this.srcs[n] !== this.srcGaviscon) {
+                            this.classes[n] = ' bg-red-600';
+                        setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
+                            this.score -= 100;
+                            this.guezProgress -= 10
+                        }
+                    }else if(this.level == 8 ){
+                        if (this.srcs[n] == this.srcGaviscon) {
+                            
+                            this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                            this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                            this.classes[n] = ' bg-green-600 ';
+                            setTimeout(()=>{if(this.classes[n]!=this.classes[m]){this.classes[n] = ''}else{this.classes[m] = this.classeGuez}},100)
+                            let m = 0
+                            let c = 0
+                            let b = 0
+                            let ch = 0
+                            let s = 0
+                            let ma = 0
+                            while (m == c || m == b || b == c || m == ch || b == ch || c == ch || s == m || s == c || s == b || s == ch || ma == m || ma == b || ma == c || ma == ch || ma == s) {
+                                m = (Math.floor(Math.random() * 25));
+                                c = (Math.floor(Math.random() * 25));
+                                b = (Math.floor(Math.random() * 25));
+                                ch = (Math.floor(Math.random() * 25));
+                                s = (Math.floor(Math.random() * 25));
+                                ma = (Math.floor(Math.random() * 25));
+                            }
+                            this.srcs[m] = this.srcGuez;
+                            this.classes[m] = this.classeGuez;
+                            this.srcs[c] = this.srcChippo;
+                            this.classes[c] = this.classeGuez;
+                            this.srcs[b] = this.srcChips;
+                            this.classes[b] = this.classeGuez;
+                            this.srcs[ch] = this.srcChorizo;
+                            this.classes[ch] = this.classeGuez;
+                            this.srcs[s] = this.srcSalade;
+                            this.classes[s] = this.classeGuez;
+                            this.srcs[ma] = this.srcGaviscon;
+                            this.classes[ma] = this.classeGuez;
+                            this.guezProgress += 20;
+                            this.levelUp()
+                            this.scoring()
+                        } else if (this.srcs[n] !== this.srcGaviscon) {
+                            this.classes[n] = ' bg-red-600';
+                        setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
+                            this.score -= 100;
+                            this.guezProgress -= 10
+                        }
+                    }
             }
         }
     }
-})
+)
