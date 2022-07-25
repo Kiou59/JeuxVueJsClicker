@@ -57,7 +57,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
         ],
         add:null,
         switch:0,
-        buttonClass:0,    
+        buttonClass:0,
+        resetClass:'hidden'    
     }),
     // getters: {
     //     doubleCount: (state) => state.counter * 2
@@ -70,6 +71,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             if(this.level==11){
                 this.buttonClass='hidden'
                 this.popUpText = `Vous etes venu à bout de cet enfer avec un score de ${this.score.toLocaleString()} point! C'est très impressionant!`
+                this.resetClass=''
             }
         },
         // interval qui permet de mesurer temps entre 2 click, malus si trop long
@@ -91,6 +93,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 let m = (Math.floor(Math.random() * 25));
                 this.classMain = '';
                 this.classPopUp = 'hidden'
+                this.buttonClass=''
+                this.resetClass='hidden'
                 this.srcs[m] = this.srcGuez;
                 this.classes[m] = this.classeGuez ;
                 this.timer = -1
@@ -173,7 +177,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             if (this.guezProgress < 0) {
                 this.classMain = 'blur-sm',
                 this.classPopUp = ''
- 
+                this.resetClass=''
+                this.buttonClass='hidden'
                 clearInterval(this.setTime)
                 this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                 this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -184,6 +189,19 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.popUpText="Vous avez perdu avec un score négatif. Peut-etre n'avez vous pas bien compris le but du jeux"
                 }
             }
+        },
+        reset(){
+            this.guezProgress=10
+            this.oldScore=0
+            this.score= 0
+            this.level= 0
+            this.timer=0
+            this.timeLeft=0
+            this.comboMetter= 0
+            this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+            this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+           this.start()
+
         },
         clickGuez(n) {
             this.gameOver()

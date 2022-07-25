@@ -20,6 +20,7 @@ const merguez=useCounterStore();
 {{merguez.popUpText}}
 </p>
 <button :class='merguez.buttonClass' @click=" merguez.start"> ok </button>
+<button :class='merguez.resetClass' @click='merguez.reset'>Recomencer</button>
 </div>
 
 </template>
