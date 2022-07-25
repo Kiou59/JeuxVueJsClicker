@@ -69,6 +69,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             this.popUpText = this.popupsText[this.level]
             if(this.level==11){
                 this.buttonClass='hidden'
+                this.popUpText = `Vous etes venu à bout de cet enfer avec un score de ${this.score.toLocaleString()} point! C'est très impressionant!`
             }
         },
         // interval qui permet de mesurer temps entre 2 click, malus si trop long
@@ -627,7 +628,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                             this.classes[s] = this.classeGuez;
                             this.srcs[ma] = this.srcGaviscon;
                             this.classes[ma] = this.classeGuez;
-                            this.guezProgress += 50;
+                            this.guezProgress += 5;
                             this.levelUp()
                             this.scoring()
         
@@ -671,7 +672,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                 this.classes[s] = this.classeGuez;
                                 this.srcs[ma] = this.srcGaviscon;
                                 this.classes[ma] = this.classeGuez;
-                                this.guezProgress += 50;
+                                this.guezProgress += 5;
                                 this.levelUp()
                                 this.scoring()
                             } else if (this.srcs[n] !== this.srcGaviscon) {
@@ -798,7 +799,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                     this.classes[s] = this.classeGuez;
                                     this.srcs[ma] = this.srcGaviscon;
                                     this.classes[ma] = this.classeGuez;
-                                    this.guezProgress += 50;
+                                    this.guezProgress += 5;
                                     this.levelUp()
                                     this.scoring()
                                 } else if (this.srcs[n] !== this.srcGaviscon) {
@@ -807,14 +808,6 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                     this.score -= 100;
                                     this.guezProgress -= 100
                                 }
-            }else if(this.level==11){
-                this.classMain = 'blur-sm',
-                this.classPopUp = ''
-            
-            this.switch=0
-            this.hPopUp = this.hsPopUp[this.level]
-            this.popUpText = `Vous etes venu à bout de cet enfer avec un score de ${this.score.toLocaleString()} point! C'est très impressionant!`
-            clearInterval(this.setTime)
             }
 }}}
 )
