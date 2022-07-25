@@ -408,7 +408,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.classes[s] = this.classeGuez;
                     this.srcs[ma] = this.srcGaviscon;
                     this.classes[ma] = this.classeGuez;
-                    this.guezProgress += 20;
+                    this.guezProgress += 5;
                     this.levelUp()
                     this.scoring()
 
@@ -450,7 +450,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         this.classes[s] = this.classeGuez;
                         this.srcs[ma] = this.srcGaviscon;
                         this.classes[ma] = this.classeGuez;
-                        this.guezProgress += 20;
+                        this.guezProgress += 5;
                         this.levelUp()
                         this.scoring()
                     } else if (this.srcs[n] !== this.srcGaviscon) {
@@ -493,7 +493,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         this.classes[s] = this.classeGuez;
                         this.srcs[ma] = this.srcGaviscon;
                         this.classes[ma] = this.classeGuez;
-                        this.guezProgress += 20;
+                        this.guezProgress += 5;
                         this.levelUp()
                         this.scoring()
     
@@ -535,7 +535,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                             this.classes[s] = this.classeGuez;
                             this.srcs[ma] = this.srcGaviscon;
                             this.classes[ma] = this.classeGuez;
-                            this.guezProgress += 20;
+                            this.guezProgress += 5;
                             this.levelUp()
                             this.scoring()
                         } else if (this.srcs[n] !== this.srcGaviscon) {
@@ -577,7 +577,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                             this.classes[s] = this.classeGuez;
                             this.srcs[ma] = this.srcGaviscon;
                             this.classes[ma] = this.classeGuez;
-                            this.guezProgress += 20;
+                            this.guezProgress += 5;
                             this.levelUp()
                             this.scoring()
                         } else if (this.srcs[n] !== this.srcGaviscon) {
