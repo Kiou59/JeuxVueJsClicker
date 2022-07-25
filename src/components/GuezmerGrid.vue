@@ -104,8 +104,8 @@ img{
 }
 #main{
     margin: auto;
-    width:50%;
-    max-height :80%;
+    width:70%;
+    max-height :90%;
 
 }
 </style>

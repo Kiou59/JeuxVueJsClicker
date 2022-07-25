@@ -161,10 +161,15 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             if (this.guezProgress < 0) {
                 this.classMain = 'blur-sm',
                 this.classPopUp = ''
-                this.hPopUp=`Vous avez perdu votre score est de ${this.score} point`
+ 
                 clearInterval(this.setTime)
                 this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                 this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                if(this.score>0){
+                    this.hPopUp=`Vous avez perdu votre score est de ${this.score} point`
+                }else{
+                    this.hPopUp="Vous avez perdu avec un score négatif. Peut-etre n'avez vous pas bien compris le but du jeux"
+                }
             }
         },
         clickGuez(n) {
