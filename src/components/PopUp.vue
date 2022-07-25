@@ -16,7 +16,7 @@ const merguez=useCounterStore();
 
 <div id='popUp'>
 <h1>{{merguez.hPopUp}}</h1>
-<p >
+<p>
 {{merguez.popUpText}}
 </p>
 <button @click=" merguez.start"> ok </button>
@@ -34,5 +34,9 @@ const merguez=useCounterStore();
     border: 4px solid;
     text-align:center;
 
+}
+#popUp h1, p ,button
+{
+    color:white;
 }
 </style>
