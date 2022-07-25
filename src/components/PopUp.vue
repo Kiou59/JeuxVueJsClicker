@@ -1,6 +1,6 @@
 <script setup>
- import { useCounterStore } from '/home/kiou/projects/MerguezTest/MerguezTest/src/stores/counter.js'
- const merguez=useCounterStore();
+import { useCounterStore } from '@/stores/counter.js'
+const merguez=useCounterStore();
  merguez.popUpStyle()
 
 </script>
