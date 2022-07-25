@@ -19,8 +19,8 @@ classeGuez: 'animate-spin h-full w-full',
 // tableau des sources d'image appliquer à la grille
 srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 // sources d'image nécéssaires
-        srcGuez: '/src/img/merguez.png',
-        srcChippo: '/src/img/chipolata.png',
+        srcGuez: './src/img/merguez.png',
+        srcChippo: './src/img/chipolata.png',
         srcChips: '/src/img/chips.png',
         srcChorizo: 'src/img/chorizo.png',
         srcGaviscon: 'src/img/maalox.png',
