@@ -9,7 +9,7 @@ const merguez=useCounterStore();
       <div id='infoLeft'>
         <div>
           {{merguez.comboMetter}}
-        Score:{{merguez.score}}
+        Score:{{merguez.score.toLocaleString()}}
         {{merguez.add}}
         </div>
         <div>Timer

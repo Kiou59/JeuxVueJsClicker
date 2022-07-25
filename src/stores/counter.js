@@ -172,7 +172,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                 this.hPopUp="Game Over"
                 if(this.score>0){
-                    this.popUpText=`Vous avez perdu votre score est de ${this.score} point`
+                    this.popUpText=`Vous avez perdu votre score est de ${this.score.toLocaleString()} point`
                 }else{
                     this.popUpText="Vous avez perdu avec un score négatif. Peut-etre n'avez vous pas bien compris le but du jeux"
                 }
