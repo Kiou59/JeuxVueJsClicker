@@ -108,4 +108,14 @@ img{
     height :80%;
 
 }
+@media (min-height: 680px), screen and (orientation: portrait) { 
+    #main{
+    paddind-top:25%;
+    margin: auto;
+    width:100%;
+    height :80%;
+
+}
+ }
+
 </style>
