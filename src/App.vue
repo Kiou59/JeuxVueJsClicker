@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from '@/components/HelloWorld.vue'
 import GuezmerGrid from '@/components/GuezmerGrid.vue'
 import PopUp from '@/components/PopUp.vue'
- import { useCounterStore } from '/home/kiou/projects/MerguezTest/MerguezTest/src/stores/counter.js'
+ import { useCounterStore } from '@/stores/counter.js'
  const merguez=useCounterStore();
 </script>
 
