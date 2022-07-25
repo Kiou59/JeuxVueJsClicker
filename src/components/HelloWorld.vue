@@ -57,6 +57,9 @@ progress::-moz-progress-bar {
 	/* styles de barre d'avancement pour Firefox */
     animation: color-change 1s infinite;
 }
-
+@media (min-height: 680px), screen and (orientation: portrait) { 
+header{
+  margin-bottom:10%;
+}}
 
 </style>

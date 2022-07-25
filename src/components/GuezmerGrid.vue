@@ -92,7 +92,7 @@ img{
 
 }
 
-
+@media (min-height: 1080px), screen {
 #main div{
 
     border: 2px solid white;
@@ -103,19 +103,20 @@ img{
     
 }
 #main{
+    
     margin: auto;
     width:50%;
-    height :80%;
+    max-height :80%;
 
-}
+}}
 @media (min-height: 680px), screen and (orientation: portrait) { 
     #main{
-    paddind-top:25%;
+    margin-top:200px;
     margin: auto;
     width:100%;
-    height :80%;
+    height :60%;
 
 }
- }
+}
 
 </style>
