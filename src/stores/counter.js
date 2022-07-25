@@ -57,6 +57,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
         ],
         add:null,
         switch:0,
+        buttonClass:0,    
     }),
     // getters: {
     //     doubleCount: (state) => state.counter * 2
@@ -66,6 +67,9 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
         popUpStyle() {
             this.hPopUp = this.hsPopUp[this.level]
             this.popUpText = this.popupsText[this.level]
+            if(this.level==11){
+                this.buttonClass='hidden'
+            }
         },
         // interval qui permet de mesurer temps entre 2 click, malus si trop long
         increaseScore() {
@@ -156,7 +160,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
         levelUp() {
             if (this.guezProgress >= 100) {
                 this.classMain = 'blur-sm',
-                    this.classPopUp = ''
+                this.classPopUp = ''
                 this.level += 1
                 this.switch=0
                 this.popUpStyle()

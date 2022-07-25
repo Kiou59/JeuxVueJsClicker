@@ -19,7 +19,7 @@ const merguez=useCounterStore();
 <p>
 {{merguez.popUpText}}
 </p>
-<button @click=" merguez.start"> ok </button>
+<button :class='merguez.buttonClass' @click=" merguez.start"> ok </button>
 </div>
 
 </template>
