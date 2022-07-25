@@ -156,6 +156,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.classMain = 'blur-sm',
                     this.classPopUp = ''
                 this.level += 1
+                this.switch=0
                 this.popUpStyle()
                 clearInterval(this.setTime)
             }
@@ -582,7 +583,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                             this.classes[n] = ' bg-red-600';
                         setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
                             this.score -= 100;
-                            this.guezProgress -= 10
+                            this.guezProgress -= 100
                         }
                     }
             }
