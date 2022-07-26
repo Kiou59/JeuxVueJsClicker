@@ -43,4 +43,10 @@ const merguez=useCounterStore();
     font-family: 'Montserrat', sans-serif;
     padding:10px;
 }
+@media (orientation: portrait) {
+   #popUp{     top:20%;
+    right:10%;
+    left:10%;
+    }
+ }
 </style>

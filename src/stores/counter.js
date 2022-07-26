@@ -6,6 +6,7 @@ export const useCounterStore = defineStore({
 // setup du popUp
 classMain: 'blur-sm',
 classPopUp: '',
+classFooter:'hidden',
 hPopUp: '',
 popUpText:'',
 // textes du popUp
@@ -73,6 +74,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.buttonClass='hidden'
                 this.popUpText = `Vous etes venu à bout de cet enfer avec un score de ${this.score.toLocaleString()} point! C'est très impressionant!`
                 this.resetClass=''
+                this.classFooter=''
             }
         },
         classTimeBarToggler(){
@@ -100,6 +102,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 let m = (Math.floor(Math.random() * 25));
                 this.classMain = '';
                 this.classPopUp = 'hidden'
+                this.classFooter=''
                 this.buttonClass=''
                 this.resetClass='hidden'
                 this.srcs[m] = this.srcGuez;
@@ -110,6 +113,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.guezProgress = 10
             } else if (this.level != 0) {
                 this.classMain = '';
+                this.classFooter=''
                 this.classPopUp = 'hidden'
                 this.classTimeBarToggler()
                 this.guezProgress = 1
@@ -174,6 +178,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
         levelUp() {
             if (this.guezProgress >= 100) {
                 this.classMain = 'blur-sm',
+                this.classFooter='hidden'
                 this.classPopUp = ''
                 this.level += 1
                 this.switch=0
@@ -185,6 +190,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
         gameOver() {
             if (this.guezProgress < 0) {
                 this.classMain = 'blur-sm',
+                this.classFooter=''
                 this.classPopUp = ''
                 this.resetClass=''
                 this.buttonClass='hidden'
