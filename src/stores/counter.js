@@ -54,6 +54,7 @@ popupsText:[`Votre objectif?
 classes: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 // classe de l'item qui apparait
 classeGuez: 'spinClass',
+spinAnimations:['1000ms','800ms','700ms','600ms','500ms','400ms','300ms','200ms','100ms','50ms'],
 // tableau des sources d'image appliquer à la grille
 srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 // sources d'image nécéssaires
@@ -140,6 +141,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
         start() {
             if (this.level == 0) {
                 let m = (Math.floor(Math.random() * 25));
+
                 this.classMain = '';
                 this.classPopUp = 'hidden'
                 this.classFooter=''
@@ -152,6 +154,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.increaseScore()
                 this.guezProgress = 10
             } else if (this.level != 0) {
+
                 this.classMain = '';
                 this.classFooter=''
                 this.classPopUp = 'hidden'
@@ -159,6 +162,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.guezProgress = 1
                 this.timer = -1
                 this.increaseScore()
+
             }
         },
 // scoring : check le temp de réaction 4 valeurs :selon ce temps, pioché dans le tab scorStep[] à l'index correspondant au niveau
@@ -261,6 +265,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
 
         },
         clickGuez(n) {
+            document.querySelector('.spinClass').style.animationDuration=this.spinAnimations[this.level]
             this.gameOver()
             console.log(this.switch)
             if (this.level == 0) {
