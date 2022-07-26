@@ -97,10 +97,10 @@ img{
   animation-duration: 500ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear; 
-  /* transform: rotate(3deg); */
-   /* transform: rotate(0.3rad);/ */
-   /* transform: rotate(3grad); */ 
-   /* transform: rotate(.03turn);  */
+  transform: rotate(3deg); 
+   transform: rotate(0.3rad);
+   transform: rotate(3grad);  
+   transform: rotate(.03turn);  
 }
 
 @keyframes spin {
