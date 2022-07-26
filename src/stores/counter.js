@@ -58,7 +58,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
         add:null,
         switch:0,
         buttonClass:0,
-        resetClass:'hidden'    
+        resetClass:'hidden',
+        classTimeBar:'firstCase'    
     }),
     // getters: {
     //     doubleCount: (state) => state.counter * 2
@@ -74,6 +75,12 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.resetClass=''
             }
         },
+        classTimeBarToggler(){
+            document.querySelector('.firstCase').style.animation='none';
+            document.querySelector('.firstCase').offsetHeight;
+            document.querySelector('.firstCase').style.animation=null;
+        },
+
         // interval qui permet de mesurer temps entre 2 click, malus si trop long
         increaseScore() {
             this.setTime = setInterval(() => {
@@ -98,11 +105,13 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.srcs[m] = this.srcGuez;
                 this.classes[m] = this.classeGuez ;
                 this.timer = -1
+                this.classTimeBarToggler()
                 this.increaseScore()
                 this.guezProgress = 10
             } else if (this.level != 0) {
                 this.classMain = '';
                 this.classPopUp = 'hidden'
+                this.classTimeBarToggler()
                 this.guezProgress = 1
                 this.timer = -1
                 this.increaseScore()
@@ -208,6 +217,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             console.log(this.switch)
             if (this.level == 0) {
                 if (this.srcs[n] == this.srcGuez) {
+                    this.classTimeBarToggler()
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes[n] = ' bg-green-600 ';
@@ -233,6 +243,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 }
             } else if (this.level == 1) {
                 if (this.srcs[n] == this.srcGuez) {
+                    this.classTimeBarToggler()
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes[n] = 'bg-green-600';
@@ -259,6 +270,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 }
             } else if (this.level == 2) {
                 if (this.srcs[n] == this.srcGuez) {
+                    this.classTimeBarToggler()
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
 
@@ -289,6 +301,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 }
             } else if (this.level == 3) {
                 if (this.srcs[n] == this.srcGuez) {
+                    this.classTimeBarToggler()
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
 
@@ -323,6 +336,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 }
             } else if (this.level == 4) {
                 if (this.srcs[n] == this.srcGuez) {
+                    this.classTimeBarToggler()
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes[n] = ' bg-green-600 ';
@@ -360,6 +374,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 }
             } else if (this.level == 5) {
                 if (this.srcs[n] == this.srcGuez) {
+                    this.classTimeBarToggler()
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes[n] = ' bg-green-600 ';
@@ -402,6 +417,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             }else if (this.level == 6 && this.switch==0) {
                 
                 if (this.srcs[n] == this.srcGuez) {
+                    this.classTimeBarToggler()
                     this.switch+=1
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -444,6 +460,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.guezProgress -= 10
                 }} else if(this.level == 6 && this.switch==1){
                     if (this.srcs[n] == this.srcGaviscon) {
+                        this.classTimeBarToggler()
                         this.switch-=1
                         this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                         this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -487,6 +504,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 }else if (this.level == 7 && this.switch<2) {
                 
                     if (this.srcs[n] == this.srcGuez) {
+                        this.classTimeBarToggler()
                         this.switch+=1
                         this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                         this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -529,6 +547,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         this.guezProgress -= 10
                     }} else if(this.level == 7 && this.switch==2){
                         if (this.srcs[n] == this.srcGaviscon) {
+                            this.classTimeBarToggler()
                             this.switch=0
                             this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                             this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -571,7 +590,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         }
                     }else if(this.level == 8 ){
                         if (this.srcs[n] == this.srcGaviscon) {
-                            
+                            this.classTimeBarToggler()
                             this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                             this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                             this.classes[n] = ' bg-green-600 ';
@@ -615,6 +634,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     else if (this.level == 9 && this.switch==0) {
                 
                         if (this.srcs[n] == this.srcGuez) {
+                            this.classTimeBarToggler()
                             this.switch+=1
                             this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                             this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -659,6 +679,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         }
                     } else if(this.level == 9 && this.switch==1){
                             if (this.srcs[n] == this.srcGaviscon) {
+                                this.classTimeBarToggler()
                                 this.switch-=1
                                 this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                                 this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -702,6 +723,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         }else if (this.level == 10 && this.switch==0) {
                 
                             if (this.srcs[n] == this.srcGuez) {
+                                this.classTimeBarToggler()
                                 this.switch+=1
                                 this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                                 this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -744,6 +766,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                 this.guezProgress -= 10
                             }} else if(this.level == 10 && this.switch==1){
                                 if (this.srcs[n] == this.srcSalade) {
+                                    this.classTimeBarToggler()
                                     this.switch+=1
                                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -786,6 +809,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                 }
                             }else if(this.level == 10 && this.switch==2){
                                 if (this.srcs[n] == this.srcGaviscon) {
+                                    this.classTimeBarToggler()
                                     this.switch=0
                                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];

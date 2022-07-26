@@ -13,7 +13,8 @@ const merguez=useCounterStore();
         {{merguez.add}}
         </div>
         <div>Timer
-            <progress  max="3 " :value="merguez.timeLeft " ></progress>
+            <div id="timer" class="firstCase"></div>
+
     </div>
         </div>
     <div id='center'>
@@ -26,7 +27,7 @@ const merguez=useCounterStore();
   </div>
     <div id='infoRight'>
       <div>Niveau:{{merguez.level}}</div>
-            <progress  max="100 " :value="merguez.guezProgress " ></progress>
+
     </div>
 </header>
 </template>
@@ -38,26 +39,38 @@ header{
 h1,h2,div {
   animation: color-change 1s infinite;
 }
-
+@media  (orientation: landscape) { 
 @keyframes color-change {
   0% { color: red; }
   50% { color: blue; }
   100% { color: red; }
 }
-progress {}
-	/* ici les styles généraux */
+.firstCase{
+  animation: width-change 2.5s ease-in  reverse both running ;
+  min-height:5px;
+  background-color:red;
+  justify-self:self-end;
+  margin:auto
 
-progress::-webkit-progress-bar { 
-	/* ici les styles généraux pour Webkit */
 }
-progress::-webkit-progress-value {  
-	/* styles de barre d'avancement pour Webkit */
-}  
-progress::-moz-progress-bar { 
-	/* styles de barre d'avancement pour Firefox */
-    animation: color-change 1s infinite;
+@keyframes width-change {
+  0% { width: 0px; 
+    background-color:red;}
+      25% { width: 25px; 
+    background-color:red;}
+  50% { width: 50px; 
+    background-color:orange;}
+      75% { width: 75px; 
+    background-color:green;}
+  100% { width: 100px; 
+    background-color:green;}
 }
-@media (min-height: 680px), screen and (orientation: portrait) { 
+
+}
+
+
+
+@media  (orientation: portrait) { 
 header{
   margin-bottom:20%;
 }}

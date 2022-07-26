@@ -5,7 +5,7 @@ const merguez=useCounterStore();
 
 <template>
 
-<div id="main" class="grid grid-rows-5 grid-cols-5  h-auto">
+<div  id="main" class="grid grid-rows-5 grid-cols-5  h-auto">
     <div class=''>
         <img :style='merguez.bgcGuez' :src='merguez.srcs[0]' :class='merguez.classes[0]' @click='merguez.clickGuez(0)' >
     </div>
@@ -92,7 +92,7 @@ img{
 
 }
 
-@media (min-height: 1080px), screen {
+@media (orientation:landscape) {
 #main div{
 
     border: 2px solid white;
@@ -109,7 +109,7 @@ img{
     max-height :80%;
 
 }}
-@media (min-height: 680px), screen and (orientation: portrait) { 
+@media (orientation: portrait) { 
     #main{
     margin-top:200px;
     margin: auto;
