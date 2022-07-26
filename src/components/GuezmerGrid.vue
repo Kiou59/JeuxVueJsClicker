@@ -91,13 +91,82 @@ img{
     width:100%;
 
 }
-.spinClass{
+.spinClass1{
     
   animation-name: spin;
   animation-duration: 1000ms; 
   animation-iteration-count: infinite;
   animation-timing-function: linear; 
-
+}
+.spinClass2{
+    
+  animation-name: spin;
+  animation-duration: 900ms; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+.spinClass3{
+    
+  animation-name: spin;
+  animation-duration: 800ms; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+.spinClass4{
+    
+  animation-name: spin;
+  animation-duration: 700ms; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+.spinClass5{
+    
+  animation-name: spin;
+  animation-duration: 600ms; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+.spinClass6{
+    
+  animation-name: spin;
+  animation-duration: 500ms; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+.spinClass7{
+    
+  animation-name: spin;
+  animation-duration: 450ms; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+.spinClass8{
+    
+  animation-name: spin;
+  animation-duration: 400ms; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+.spinClass9{
+    
+  animation-name: spin;
+  animation-duration: 350ms; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+.spinClass10{
+    
+  animation-name: spin;
+  animation-duration: 300ms; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+.spinClass11{
+    
+  animation-name: spin;
+  animation-duration: 1000ms; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
 }
 
 @keyframes spin {

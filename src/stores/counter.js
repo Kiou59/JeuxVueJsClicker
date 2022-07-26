@@ -53,7 +53,8 @@ popupsText:[`Votre objectif?
 //  tableau de classes initiale de toutes les div
 classes: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 // classe de l'item qui apparait
-classeGuez: 'spinClass',
+classesGuez:['spinClass1','spinClass2','spinClass3','spinClass4','spinClass5','spinClass6','spinClass7','spinClass8','spinClass9','spinClass10'],
+classeGuez: 'spinClass1',
 spinAnimations:['1000ms','800ms','700ms','600ms','500ms','400ms','300ms','200ms','100ms','50ms'],
 // tableau des sources d'image appliquer à la grille
 srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -225,6 +226,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.classFooter='hidden'
                 this.classPopUp = ''
                 this.level += 1
+                this.classeGuez= this.classesGuez[this.level],
                 this.switch=0
                 this.popUpStyle()
                 clearInterval(this.setTime)
@@ -265,7 +267,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
 
         },
         clickGuez(n) {
-            document.querySelector('.spinClass').style.animationDuration=this.spinAnimations[this.level]
+
             this.gameOver()
             console.log(this.switch)
             if (this.level == 0) {
@@ -502,7 +504,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.classes[s] = this.classeGuez;
                     this.srcs[ma] = this.srcGaviscon;
                     this.classes[ma] = this.classeGuez;
-                    this.guezProgress += 5;
+                    this.guezProgress += 10;
                     this.levelUp()
                     this.scoring()
 
@@ -545,7 +547,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         this.classes[s] = this.classeGuez;
                         this.srcs[ma] = this.srcGaviscon;
                         this.classes[ma] = this.classeGuez;
-                        this.guezProgress += 5;
+                        this.guezProgress += 10;
                         this.levelUp()
                         this.scoring()
                     } else if (this.srcs[n] !== this.srcGaviscon) {
@@ -589,7 +591,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         this.classes[s] = this.classeGuez;
                         this.srcs[ma] = this.srcGaviscon;
                         this.classes[ma] = this.classeGuez;
-                        this.guezProgress += 5;
+                        this.guezProgress += 10;
                         this.levelUp()
                         this.scoring()
     
@@ -632,7 +634,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                             this.classes[s] = this.classeGuez;
                             this.srcs[ma] = this.srcGaviscon;
                             this.classes[ma] = this.classeGuez;
-                            this.guezProgress += 5;
+                            this.guezProgress += 10;
                             this.levelUp()
                             this.scoring()
                         } else if (this.srcs[n] !== this.srcGaviscon) {
@@ -674,17 +676,31 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                             this.classes[s] = this.classeGuez;
                             this.srcs[ma] = this.srcGaviscon;
                             this.classes[ma] = this.classeGuez;
-                            this.guezProgress += 5;
+                            this.guezProgress += 10;
                             this.levelUp()
                             this.scoring()
                         } else if (this.srcs[n] !== this.srcGaviscon) {
                             this.classes[n] = ' bg-red-600';
                         setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
-                            this.score -= 100;
-                            this.guezProgress -= 100
+                        this.classMain = 'blur-sm',
+                        this.classFooter=''
+                        this.classPopUp = ''
+                        this.resetClass=''
+                        this.buttonClass='hidden'
+                        clearInterval(this.setTime)
+                        this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                        this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                        this.hPopUp="Game Over"
+                        
+                        this.popUpText=`Vous avez perdu.
+                        Vous auriez du prendre un Maalox 
+                        Votre score est tout de meme de ${this.score.toLocaleString()} point!
+                        Retentez votre chance!`
+                        
+                    }
                         }
-                    }        
-                    else if (this.level == 9 && this.switch==0) {
+                     
+                else if (this.level == 9 && this.switch==0) {
                 
                         if (this.srcs[n] == this.srcGuez) {
                             this.classTimeBarToggler()
@@ -719,15 +735,29 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                             this.classes[s] = this.classeGuez;
                             this.srcs[ma] = this.srcGaviscon;
                             this.classes[ma] = this.classeGuez;
-                            this.guezProgress += 5;
+                            this.guezProgress +=10;
                             this.levelUp()
                             this.scoring()
         
                         } else if (this.srcs[n] !== this.srcGuez) {
+                           
                             this.classes[n] = ' bg-red-600';
                             setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
-                            this.score -= 100;
-                            this.guezProgress -= 100
+                            this.classMain = 'blur-sm',
+                            this.classFooter=''
+                            this.classPopUp = ''
+                            this.resetClass=''
+                            this.buttonClass='hidden'
+                            clearInterval(this.setTime)
+                            this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                            this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                            this.hPopUp="Game Over"
+                            
+                            this.popUpText=`Vous avez perdu.
+                            Vous auriez du prendre une Merguez 
+                            Votre score est tout de meme de ${this.score.toLocaleString()} point!
+                            Retentez votre chance!`
+                            
 
                         }
                     } else if(this.level == 9 && this.switch==1){
@@ -764,14 +794,27 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                 this.classes[s] = this.classeGuez;
                                 this.srcs[ma] = this.srcGaviscon;
                                 this.classes[ma] = this.classeGuez;
-                                this.guezProgress += 5;
+                                this.guezProgress += 10;
                                 this.levelUp()
                                 this.scoring()
                             } else if (this.srcs[n] !== this.srcGaviscon) {
                                 this.classes[n] = ' bg-red-600';
-                            setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
-                                this.score -= 100;
-                                this.guezProgress -= 100
+                                setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
+                                this.classMain = 'blur-sm',
+                                this.classFooter=''
+                                this.classPopUp = ''
+                                this.resetClass=''
+                                this.buttonClass='hidden'
+                                clearInterval(this.setTime)
+                                this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                                this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                                this.hPopUp="Game Over"
+                                
+                                this.popUpText=`Vous avez perdu.
+                                Vous auriez du prendre un Maalox 
+                                Votre score est tout de meme de ${this.score.toLocaleString()} point!
+                                Retentez votre chance!`
+                                
                             }
                         }else if (this.level == 10 && this.switch==0) {
                 
@@ -808,7 +851,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                 this.classes[s] = this.classeGuez;
                                 this.srcs[ma] = this.srcGaviscon;
                                 this.classes[ma] = this.classeGuez;
-                                this.guezProgress += 5;
+                                this.guezProgress += 10;
                                 this.levelUp()
                                 this.scoring()
             
@@ -851,14 +894,27 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                     this.classes[s] = this.classeGuez;
                                     this.srcs[ma] = this.srcGaviscon;
                                     this.classes[ma] = this.classeGuez;
-                                    this.guezProgress += 5;
+                                    this.guezProgress += 10;
                                     this.levelUp()
                                     this.scoring()
                                 } else if (this.srcs[n] !== this.srcSalade) {
                                     this.classes[n] = ' bg-red-600';
-                                setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
-                                    this.score -= 100;
-                                    this.guezProgress -= 100
+                                    setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
+                                    this.classMain = 'blur-sm',
+                                    this.classFooter=''
+                                    this.classPopUp = ''
+                                    this.resetClass=''
+                                    this.buttonClass='hidden'
+                                    clearInterval(this.setTime)
+                                    this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                                    this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                                    this.hPopUp="Game Over"
+                                    
+                                    this.popUpText=`Vous avez perdu.
+                                    Vous auriez du prendre une salade. 
+                                    Votre score est tout de meme de ${this.score.toLocaleString()} point!
+                                    Retentez votre chance!`
+                                    
                                 }
                             }else if(this.level == 10 && this.switch==2){
                                 if (this.srcs[n] == this.srcGaviscon) {
@@ -894,14 +950,27 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                     this.classes[s] = this.classeGuez;
                                     this.srcs[ma] = this.srcGaviscon;
                                     this.classes[ma] = this.classeGuez;
-                                    this.guezProgress += 5;
+                                    this.guezProgress += 10;
                                     this.levelUp()
                                     this.scoring()
                                 } else if (this.srcs[n] !== this.srcGaviscon) {
                                     this.classes[n] = ' bg-red-600';
-                                setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
-                                    this.score -= 100;
-                                    this.guezProgress -= 100
+                                    setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
+                                    this.classMain = 'blur-sm',
+                                    this.classFooter=''
+                                    this.classPopUp = ''
+                                    this.resetClass=''
+                                    this.buttonClass='hidden'
+                                    clearInterval(this.setTime)
+                                    this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                                    this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                                    this.hPopUp="Game Over"
+                                    
+                                    this.popUpText=`Vous avez perdu.
+                                    Vous auriez du prendre un Maalox 
+                                    Votre score est tout de meme de ${this.score.toLocaleString()} point!
+                                    Retentez votre chance!`
+                                    
                                 }
             }
 }}}
