@@ -11,7 +11,44 @@ hPopUp: '',
 popUpText:'',
 // textes du popUp
 hsPopUp: ['Bienvenue sur Merguez madness!', 'niveau 1', 'niveau 2', 'niveau 3', 'niveau 4', 'niveau 5','niveau 6','niveau 7','niveau 8','niveau 9','niveau 10', 'Felicitations!'],
-popupsText:[`Votre objectif? Les merguez!Cliquez le plus vite possible pour augmenter votre score`,'Votre voisin Francis fait cuire des chipolattas. Ne vous interessez pas à ces saucisses fades',"Le père de Francis, Roger, est tres bavard. Malgré votre désinteret non dissumulé, il tient à vous convaincre que les chips à l'ancienne sont bien meilleures que les ordinaire. Vous devez l'ignorer et rester concentré sur les merguez! ","Horreur! Des chorizos! ils cuisent des chorizos! Cette fete des voisins vous permet de voir le vrai visage de ces dégénérés.",'Non mais là! de la salade?!  Restez cordial mais concentré',"Et voilà Roger qui remet ça!Ce coup ci c'est sur la mauvaise qualité des merguez de grande surface et ses remontées acides chronique. Vous observez le foyer en vous disant qu'il pourrait sous peu se plaindre d'autres type de brulures ",'Ca va pas du tout! Votre estomac vous brule mais vous ne voulez pas donner raison à Roger. Alternez Merguez et Maalox pour esperer voir le niveau 7',"Vous vous sentez vaguement mieux. Tentez de manger deux merguez pour un maalox, on verra bien ce que ça donne","Votre vie ne tient plus qu'à un fil si vous avalez autre chose que du Maalox c'est perdu pour vous","Ca y'est vous pouvez vous y remettre! vous restez cependant fragile. Alternez merguez et Maalox comme au niveau 7","Merguez-Maalox, en vrai, c'est dur. On tente merguez-salade-Maalox? Enfin je pose la question, mais vous avez pas le choix"], 
+popupsText:[`Votre objectif?       
+                Les merguez!
+        Cliquez le plus vite possible pour augmenter votre score!`,
+        `Votre voisin Francis fait cuire des chipolattas.
+         Ne vous intéressez pas à ces saucisses fades!`,
+         `Le père de Francis, Roger, est très bavard. 
+         Malgré votre désinteret non dissumulé,
+          il tient à vous convaincre que les chips à l'ancienne sont bien meilleures que les ordinaires.
+           Vous devez l'ignorer et rester concentré sur les merguez! `,
+           `Horreur! 
+           Des chorizos! 
+           ils cuisent des chorizos! 
+           Cette fete des voisins vous permet de voir le vrai visage de ces dégénérés!`,
+           `ah bah v'la autre chose! 
+           De la salade!  
+           Restez cordial mais concentré sur votre objectif épicé!`,
+           `Et voilà Roger qui remet ça!
+           Ce coup ci, c'est sur la mauvaise qualité des merguez de grande surface et ses remontées acides chronique. 
+           Vous observez le foyer en vous disant, qu'il pourrait sous peu se plaindre d'autres type de brulures `,
+           `Ca va pas du tout ... 
+           Votre estomac vous brule, mais vous ne voulez pas donner raison à Roger. 
+           Alternez Merguez et Maalox pour esperer voir le niveau 7!
+           Merguez-Maalox
+           Merguez-Maalox
+           Merguez-Maalox`,
+           `Vous vous sentez vaguement mieux. 
+           Tentez de manger deux merguez pour un maalox, on verra bien ce que ça donne.
+           Merguez-Merguez-Maalox
+           Merguez-Merguez-Maalox
+           Merguez-Merguez-Maalox`,
+           `Votre vie ne tient plus qu'à un fil!
+            Si vous avalez autre chose que du Maalox c'est perdu pour vous`,
+            `Ca y'est vous pouvez vous y remettre!
+             Vous restez cependant fragile. 
+             Alternez merguez et Maalox comme au niveau 6`,
+             `Merguez-Maalox, en vrai, c'est redondant.
+              On tente merguez-salade-Maalox?
+               Enfin je pose la question, mais vous avez pas le choix`], 
 // setup de la grille
 //  tableau de classes initiale de toutes les div
 classes: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -72,7 +109,10 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             this.popUpText = this.popupsText[this.level]
             if(this.level==11){
                 this.buttonClass='hidden'
-                this.popUpText = `Vous etes venu à bout de cet enfer avec un score de ${this.score.toLocaleString()} point! C'est très impressionant!`
+                this.popUpText = `Vous etes venu à bout de cet enfer!
+                Et avec un score de ${this.score.toLocaleString()} point! 
+                C'est vraiment beaucoup beaucoup!
+                C'est très impressionant!`
                 this.resetClass=''
                 this.classFooter=''
             }
@@ -199,9 +239,11 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                 this.hPopUp="Game Over"
                 if(this.score>0){
-                    this.popUpText=`Vous avez perdu votre score est de ${this.score.toLocaleString()} point`
+                    this.popUpText=`Vous avez perdu. 
+                    Votre score est de ${this.score.toLocaleString()} point`
                 }else{
-                    this.popUpText="Vous avez perdu avec un score négatif. Peut-etre n'avez vous pas bien compris le but du jeux"
+                    this.popUpText=`Vous avez perdu avec un score négatif. 
+                    Peut-etre n'avez vous pas bien compris le but du jeux`
                 }
             }
         },

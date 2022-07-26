@@ -33,4 +33,9 @@ const merguez=useCounterStore();
 #rsLink div{
     margin-left:2px;
 }
+@media (orientation: portrait){
+    #rsLink div{
+    margin:auto;
+}
+}
 </style>
