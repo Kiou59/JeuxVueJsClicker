@@ -5,7 +5,13 @@ const merguez=useCounterStore();
 </script>
 
 <template>
-<header class='grid grid-cols-3 text-center h-24 pt-5'>
+<header >
+  <div class='row text-center'>
+      <h1>
+    MERGUEZ CLICKER
+  </h1>
+  </div>
+  <div class='grid grid-cols-3 text-center h-24 pt-5'>
       <div id='infoLeft'>
         <div>
           {{merguez.comboMetter}}
@@ -18,9 +24,7 @@ const merguez=useCounterStore();
     </div>
         </div>
     <div id='center'>
-  <h1 >
-    MERGUEZ CLICKER
-  </h1>
+
     <h2>
     cliquez sur la merguez
   </h2>
@@ -29,6 +33,7 @@ const merguez=useCounterStore();
       <div>Niveau:{{merguez.level}}</div>
 
     </div>
+    </div>
 </header>
 </template>
 <style>
@@ -36,9 +41,12 @@ header{
   background-color:black;
   color:white;
 }
-h1,h2,div {
+div {
+
   animation: color-change 1s infinite;
+  font-family: 'Kanit', sans-serif;
 }
+
 @media  (orientation: landscape) { 
 @keyframes color-change {
   0% { color: red; }
@@ -73,6 +81,31 @@ h1,h2,div {
 @media  (orientation: portrait) { 
 header{
   margin-bottom:20%;
+}
+@keyframes color-change {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: red; }
+}
+.firstCase{
+  animation: width-change 2.5s ease-in  reverse both running ;
+  min-height:5px;
+  background-color:red;
+  justify-self:self-end;
+  margin:auto
+
+}
+@keyframes width-change {
+  0% { width: 0px; 
+    background-color:red;}
+      25% { width: 25px; 
+    background-color:red;}
+  50% { width: 50px; 
+    background-color:orange;}
+      75% { width: 75px; 
+    background-color:green;}
+  100% { width: 100px; 
+    background-color:green;}
 }}
 
 </style>

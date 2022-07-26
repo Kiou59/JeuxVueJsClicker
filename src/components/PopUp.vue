@@ -36,8 +36,9 @@ const merguez=useCounterStore();
     text-align:center;
 
 }
-#popUp h1, p ,button
+#popUp p 
 {
-    color:white;
+    color:black;
+    font-family: 'Montserrat', sans-serif;
 }
 </style>
