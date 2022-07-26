@@ -106,8 +106,8 @@ img{
 #main{
     
     margin: auto;
-    width:50%;
-    max-height :80%;
+    width:30%;
+    height:auto;
 
 }}
 @media (orientation: portrait) { 
