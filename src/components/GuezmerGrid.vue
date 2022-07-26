@@ -94,7 +94,7 @@ img{
 .spinClass{
     
   animation-name: spin;
-  animation-duration: 1000ms;
+  animation-duration: 1000ms; 
   animation-iteration-count: infinite;
   animation-timing-function: linear; 
 
