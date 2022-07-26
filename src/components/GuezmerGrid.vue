@@ -122,8 +122,8 @@ img{
 
     border: 2px solid white;
     border-radius:5px;
-    max-height:90%;
-    max-width:90%;
+    max-height:100%;
+    max-width:100%;
 
 
     
