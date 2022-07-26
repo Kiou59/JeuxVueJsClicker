@@ -96,6 +96,7 @@ img{
 #main div{
 
     border: 2px solid white;
+    border-radius: 5px;
     max-height:90%;
     max-width:90%;
 
@@ -116,6 +117,16 @@ img{
     width:100%;
     height :60%;
 
+}
+#main div{
+
+    border: 2px solid white;
+    border-radius:5px;
+    max-height:90%;
+    max-width:90%;
+
+
+    
 }
 }
 

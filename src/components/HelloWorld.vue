@@ -8,7 +8,7 @@ const merguez=useCounterStore();
 <header >
   <div class='row text-center'>
       <h1>
-    MERGUEZ CLICKER
+    MERGUEZ MADNESS
   </h1>
   </div>
   <div class='grid grid-cols-3 text-center h-24 pt-5'>

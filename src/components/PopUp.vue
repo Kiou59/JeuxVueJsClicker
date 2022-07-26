@@ -32,7 +32,8 @@ const merguez=useCounterStore();
     left:10%;
     background-color : red;
     color: white;
-    border: 4px solid;
+    border: 4px solid white;
+    border-radius : 10px;
     text-align:center;
 
 }
@@ -40,5 +41,6 @@ const merguez=useCounterStore();
 {
     color:black;
     font-family: 'Montserrat', sans-serif;
+    padding:10px;
 }
 </style>
