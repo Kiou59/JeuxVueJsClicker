@@ -53,7 +53,7 @@ popupsText:[`Votre objectif?
 //  tableau de classes initiale de toutes les div
 classes: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 // classe de l'item qui apparait
-classeGuez: 'animate-spin h-full w-full',
+classeGuez: 'spinClass',
 // tableau des sources d'image appliquer à la grille
 srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 // sources d'image nécéssaires

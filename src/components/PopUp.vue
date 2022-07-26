@@ -15,7 +15,7 @@ const merguez=useCounterStore();
 
 
 <div id='popUp'>
-<h1>{{merguez.hPopUp}}</h1>
+<h1>{{merguez.hPopUp.toUpperCase()}}</h1>
 <p>
 {{merguez.popUpText}}
 </p>
