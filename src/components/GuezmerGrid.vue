@@ -91,6 +91,7 @@ img{
     width:100%;
 
 }
+
 .spinClass1{
     
   animation-name: spin;
@@ -200,7 +201,7 @@ img{
 }
 #main{
     
-    margin:3% auto ;
+    margin:2% auto ;
     width:30%;
     height:auto;
 

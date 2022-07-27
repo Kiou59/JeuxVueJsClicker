@@ -100,6 +100,9 @@ header div{
 header{
   margin-bottom:20%;
 }
+header h1{
+  font-size:1.3rem;
+}
 .hithere{
   font-size:1.3rem;
 }
