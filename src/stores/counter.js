@@ -232,6 +232,11 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.switch=0
                 this.popUpStyle()
                 clearInterval(this.setTime)
+                if(this.level == 8){
+                    this.clickableItem=this.clickableItems[1]
+                }else if(this.level == 9){
+                    this.clickableItem=this.clickableItems[0]
+                }
             }
         },
 // si l'avancement deviens négatif game over
