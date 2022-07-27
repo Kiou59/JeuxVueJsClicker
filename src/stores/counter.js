@@ -10,48 +10,56 @@ classFooter:'hidden',
 hPopUp: '',
 popUpText:'',
 // textes du popUp
-hsPopUp: ['Bienvenue sur Merguez madness!', 'niveau 1', 'niveau 2', 'niveau 3', 'niveau 4', 'niveau 5','niveau 6','niveau 7','niveau 8','niveau 9','niveau 10', 'Felicitations!'],
+hsPopUp: ['Bienvenue sur MERGUEZ madness!', 'niveau 1', 'niveau 2', 'niveau 3', 'niveau 4', 'niveau 5','niveau 6','niveau 7','niveau 8','niveau 9','niveau 10', 'Felicitations!'],
 popupsText:[`Votre objectif?       
-                Les merguez!
+                Les MERGUEZ!
         Cliquez le plus vite possible pour augmenter votre score!`,
         `Votre voisin Francis fait cuire des chipolattas.
          Ne vous intéressez pas à ces saucisses fades!`,
          `Le père de Francis, Roger, est très bavard. 
          Malgré votre désinteret non dissumulé,
           il tient à vous convaincre que les chips à l'ancienne sont bien meilleures que les ordinaires.
-           Vous devez l'ignorer et rester concentré sur les merguez! `,
+           Vous devez l'ignorer et rester concentré sur les MERGUEZ! `,
            `Horreur! 
            Des chorizos! 
-           ils cuisent des chorizos! 
+           Ils cuisent des chorizos! 
            Cette fete des voisins vous permet de voir le vrai visage de ces dégénérés!`,
-           `ah bah v'la autre chose! 
+           `Ah bah v'la autre chose! 
            De la salade!  
            Restez cordial mais concentré sur votre objectif épicé!`,
            `Et voilà Roger qui remet ça!
-           Ce coup ci, c'est sur la mauvaise qualité des merguez de grande surface et ses remontées acides chronique. 
-           Vous observez le foyer en vous disant, qu'il pourrait sous peu se plaindre d'autres type de brulures `,
+           Ce coup-ci, c'est sur la mauvaise qualité des merguez de grande surface et ses remontées acides chroniques. 
+           Vous observez le foyer en vous disant, qu'il pourrait, sous peu, se plaindre d'autres types de brulures `,
            `Ca va pas du tout ... 
-           Votre estomac vous brule, mais vous ne voulez pas donner raison à Roger. 
-           Alternez Merguez et Maalox pour esperer voir le niveau 7!
-           Merguez-Maalox
-           Merguez-Maalox
-           Merguez-Maalox`,
+           Votre estomac vous brûle, 
+           Il a raison Roger "ils mettent tout et n'importe quoi la d'dans ça s'trouve"
+           Mais il dit la même chose des vaccins Roger,
+           alors vous pouvez pas vraiment lui donner raison sur tout.
+           Peut-être que quelque chose de sain? 
+           Alternez Merguez et Salade pour esperer voir le niveau 7!
+           Merguez-Salade
+           Merguez-Salade
+           Merguez-Salade`,
            `Vous vous sentez vaguement mieux. 
-           Tentez de manger deux merguez pour un maalox, on verra bien ce que ça donne.
-           Merguez-Merguez-Maalox
-           Merguez-Merguez-Maalox
-           Merguez-Merguez-Maalox`,
+           Mais il reste encore tant de merguez!
+            Vous décidez de les manger deux par deux et de faire glisser ça avec une feuille de salade.
+           Merguez-Merguez-Salade
+           Merguez-Merguez-Salade
+           Merguez-Merguez-Salade`,
            `Votre vie ne tient plus qu'à un fil!
-            Si vous avalez autre chose que du Maalox c'est perdu pour vous`,
+            Si vous avalez autre chose que de la salade c'est perdu pour vous`,
             `Ca y'est vous pouvez vous y remettre!
-             Vous restez cependant fragile. 
-             Alternez merguez et Maalox comme au niveau 6`,
-             `Merguez-Maalox, en vrai, c'est redondant.
+             Vous restez, cependant, fragile. 
+             Alternez merguez et Salade comme au niveau 6`,
+             `Merguez-Salade, ça ne suffira pas.
+             Vous allez devoir vous résoudre à accepter un des maalox dont Roger vous rabache les oreilles,
+             Depuis... Le niveau 6?
+             Mais il est hors de question d'abandonner les merguez!
               On tente merguez-salade-Maalox?
-               Enfin je pose la question, mais vous avez pas le choix`], 
+               Enfin je pose la question, mais c'est pas comme si vous aviez le choix`], 
 // setup de la grille
-clickableItems:['la merguez','le maalox','la salade'],
-clickableItem:'la merguez',
+clickableItems:['la MERGUEZ','de la salade','le maalox'],
+clickableItem:'la MERGUEZ',
 //  tableau de classes initiale de toutes les div
 classes: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 // classe de l'item qui apparait
@@ -113,8 +121,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             this.popUpText = this.popupsText[this.level]
             if(this.level==11){
                 this.buttonClass='hidden'
-                this.popUpText = `Vous etes venu à bout de cet enfer!
-                Et avec un score de ${this.score.toLocaleString()} point! 
+                this.popUpText = `Vous êtes venu à bout de cet enfer!
+                Et avec un score de ${this.score.toLocaleString()} points! 
                 C'est vraiment beaucoup, beaucoup de points.
                 C'est très impressionant!`
                 this.resetClass=''
@@ -253,15 +261,15 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.hPopUp="Game Over"
                 if(this.score>0){
                     this.popUpText=`Vous avez perdu. 
-                    Votre score est de ${this.score.toLocaleString()} point`
+                    Votre score est de ${this.score.toLocaleString()} points`
                 }else{
                     this.popUpText=`Vous avez perdu avec un score négatif. 
-                    Peut-etre n'avez vous pas bien compris le but du jeux`
+                    Peut-être n'avez vous pas bien compris le but du jeu`
                 }
             }
         },
         reset(){
-            this.clickableItem='la merguez'
+            this.clickableItem='la MERGUEZ'
             this.guezProgress=10
             this.oldScore=0
             this.score= 0
@@ -526,7 +534,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.guezProgress -= 10
                 }} else if(this.level == 6 && this.switch==1){
                     this.clickableItem=this.clickableItems[0]
-                    if (this.srcs[n] == this.srcGaviscon) {
+                    if (this.srcs[n] == this.srcSalade) {
                         this.classTimeBarToggler()
                         this.switch-=1
                         this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -562,7 +570,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         this.guezProgress += 10;
                         this.levelUp()
                         this.scoring()
-                    } else if (this.srcs[n] !== this.srcGaviscon) {
+                    } else if (this.srcs[n] !== this.srcSalade) {
                         this.classes[n] = ' bg-red-600';
                     setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
                         this.score -= 100;
@@ -661,7 +669,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                             this.score -= 100;
                             this.guezProgress -= 10
                         }} else if(this.level == 7 && this.switch==2){
-                        if (this.srcs[n] == this.srcGaviscon) {
+                        if (this.srcs[n] == this.srcSalade) {
                     this.clickableItem=this.clickableItems[0]
                             this.classTimeBarToggler()
                             this.switch=0
@@ -698,14 +706,14 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                             this.guezProgress += 10;
                             this.levelUp()
                             this.scoring()
-                        } else if (this.srcs[n] !== this.srcGaviscon) {
+                        } else if (this.srcs[n] !== this.srcSalade) {
                             this.classes[n] = ' bg-red-600';
                         setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
                             this.score -= 100;
                             this.guezProgress -= 10
                         }
                     }else if(this.level == 8 ){
-                        if (this.srcs[n] == this.srcGaviscon) {
+                        if (this.srcs[n] == this.srcSalade) {
                     this.clickableItem=this.clickableItems[1]
 
                             this.classTimeBarToggler()
@@ -742,7 +750,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                             this.guezProgress += 10;
                             this.levelUp()
                             this.scoring()
-                        } else if (this.srcs[n] !== this.srcGaviscon) {
+                        } else if (this.srcs[n] !== this.srcSalade) {
                             this.classes[n] = ' bg-red-600';
                         setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
                         this.classMain = 'blur-sm',
@@ -756,8 +764,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         this.hPopUp="Game Over"
                         
                         this.popUpText=`Vous avez perdu.
-                        Vous auriez du prendre un Maalox 
-                        Votre score est tout de meme de ${this.score.toLocaleString()} point!
+                        Vous auriez du prendre de la salade 
+                        Votre score est tout de meme de ${this.score.toLocaleString()} points!
                         Retentez votre chance!`
                         
                     }
@@ -819,14 +827,14 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                             this.hPopUp="Game Over"
                             
                             this.popUpText=`Vous avez perdu.
-                            Vous auriez du prendre une Merguez 
-                            Votre score est tout de meme de ${this.score.toLocaleString()} point!
+                            Vous auriez du prendre une MERGUEZ 
+                            Votre score est tout de même de ${this.score.toLocaleString()} points!
                             Retentez votre chance!`
                             
 
                         }
                     } else if(this.level == 9 && this.switch==1){
-                            if (this.srcs[n] == this.srcGaviscon) {
+                            if (this.srcs[n] == this.srcSalade) {
                     this.clickableItem=this.clickableItems[0]
                                 this.classTimeBarToggler()
                                 this.switch-=1
@@ -863,7 +871,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                 this.guezProgress += 10;
                                 this.levelUp()
                                 this.scoring()
-                            } else if (this.srcs[n] !== this.srcGaviscon) {
+                            } else if (this.srcs[n] !== this.srcSalade) {
                                 this.classes[n] = ' bg-red-600';
                                 setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
                                 this.classMain = 'blur-sm',
@@ -877,8 +885,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                 this.hPopUp="Game Over"
                                 
                                 this.popUpText=`Vous avez perdu.
-                                Vous auriez du prendre un Maalox 
-                                Votre score est tout de meme de ${this.score.toLocaleString()} point!
+                                Vous auriez du prendre de la salade.
+                                Votre score est tout de même de ${this.score.toLocaleString()} points!
                                 Retentez votre chance!`
                                 
                             }
@@ -981,7 +989,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                     
                                     this.popUpText=`Vous avez perdu.
                                     Vous auriez du prendre une salade. 
-                                    Votre score est tout de meme de ${this.score.toLocaleString()} point!
+                                    Votre score est tout de même de ${this.score.toLocaleString()} points!
                                     Retentez votre chance!`
                                     
                                 }
@@ -1037,8 +1045,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                     this.hPopUp="Game Over"
                                     
                                     this.popUpText=`Vous avez perdu.
-                                    Vous auriez du prendre un Maalox 
-                                    Votre score est tout de meme de ${this.score.toLocaleString()} point!
+                                    Vous auriez du prendre un maalox 
+                                    Votre score est tout de même de ${this.score.toLocaleString()} points!
                                     Retentez votre chance!`
                                     
                                 }
