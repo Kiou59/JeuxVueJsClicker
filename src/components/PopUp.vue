@@ -30,7 +30,7 @@ const merguez=useCounterStore();
     top:40%;
     right:10%;
     left:10%;
-    background-color : red;
+    background-color : grey;
     color: white;
     border: 4px solid white;
     border-radius : 10px;

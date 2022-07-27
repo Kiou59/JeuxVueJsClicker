@@ -53,7 +53,7 @@ popupsText:[`Votre objectif?
 //  tableau de classes initiale de toutes les div
 classes: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 // classe de l'item qui apparait
-classesGuez:['spinClass1','spinClass2','spinClass3','spinClass4','spinClass5','spinClass6','spinClass7','spinClass8','spinClass9','spinClass10'],
+classesGuez:['spinClass1','spinClass2','spinClass3','spinClass4','spinClass5','spinClass6','spinClass7','spinClass8','spinClass9','spinClass10','spinClass11'],
 classeGuez: 'spinClass1',
 spinAnimations:['1000ms','800ms','700ms','600ms','500ms','400ms','300ms','200ms','100ms','50ms'],
 // tableau des sources d'image appliquer à la grille
@@ -259,6 +259,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             this.score= 0
             this.level= 0
             this.timer=0
+            this.classeGuez= this.classesGuez[this.level],
             this.timeLeft=3
             this.comboMetter= 0
             this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
