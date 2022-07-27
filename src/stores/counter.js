@@ -50,6 +50,8 @@ popupsText:[`Votre objectif?
               On tente merguez-salade-Maalox?
                Enfin je pose la question, mais vous avez pas le choix`], 
 // setup de la grille
+clickableItems:['la merguez','le maalox','la salade'],
+clickableItem:'la merguez',
 //  tableau de classes initiale de toutes les div
 classes: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 // classe de l'item qui apparait
@@ -113,7 +115,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 this.buttonClass='hidden'
                 this.popUpText = `Vous etes venu à bout de cet enfer!
                 Et avec un score de ${this.score.toLocaleString()} point! 
-                C'est vraiment beaucoup beaucoup!
+                C'est vraiment beaucoup, beaucoup de points.
                 C'est très impressionant!`
                 this.resetClass=''
                 this.classFooter=''
@@ -431,6 +433,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             } else if (this.level == 5) {
                 if (this.srcs[n] == this.srcGuez) {
                     this.classTimeBarToggler()
+
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                     this.classes[n] = ' bg-green-600 ';
@@ -473,6 +476,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             }else if (this.level == 6 && this.switch==0) {
                 
                 if (this.srcs[n] == this.srcGuez) {
+                    this.clickableItem=this.clickableItems[1]
                     this.classTimeBarToggler()
                     this.switch+=1
                     this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -515,6 +519,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                     this.score -= 100;
                     this.guezProgress -= 10
                 }} else if(this.level == 6 && this.switch==1){
+                    this.clickableItem=this.clickableItems[0]
                     if (this.srcs[n] == this.srcGaviscon) {
                         this.classTimeBarToggler()
                         this.switch-=1
@@ -557,9 +562,11 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         this.score -= 100;
                         this.guezProgress -= 10
                     }
-                }else if (this.level == 7 && this.switch<2) {
+                }else if (this.level == 7 && this.switch==0) {
                 
                     if (this.srcs[n] == this.srcGuez) {
+                    this.clickableItem=this.clickableItems[0]
+
                         this.classTimeBarToggler()
                         this.switch+=1
                         this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -595,14 +602,61 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         this.guezProgress += 10;
                         this.levelUp()
                         this.scoring()
-    
-                    } else if (this.srcs[n] !== this.srcGuez) {
+                    }
+                     else if (this.srcs[n] !== this.srcGuez) {
                         this.classes[n] = ' bg-red-600';
                         setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
                         this.score -= 100;
                         this.guezProgress -= 10
-                    }} else if(this.level == 7 && this.switch==2){
+                    }}else if (this.level == 7 && this.switch==1) {
+                
+                        if (this.srcs[n] == this.srcGuez) {
+                        this.clickableItem=this.clickableItems[1]
+    
+                            this.classTimeBarToggler()
+                            this.switch+=1
+                            this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                            this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+                            this.classes[n] = ' bg-green-600 ';
+                            setTimeout(()=>{if(this.classes[n]!=this.classes[m]){this.classes[n] = ''}else{this.classes[m] = this.classeGuez}},100)
+                            let m = 0
+                            let c = 0
+                            let b = 0
+                            let ch = 0
+                            let s = 0
+                            let ma = 0
+                            while (m == c || m == b || b == c || m == ch || b == ch || c == ch || s == m || s == c || s == b || s == ch || ma == m || ma == b || ma == c || ma == ch || ma == s) {
+                                m = (Math.floor(Math.random() * 25));
+                                c = (Math.floor(Math.random() * 25));
+                                b = (Math.floor(Math.random() * 25));
+                                ch = (Math.floor(Math.random() * 25));
+                                s = (Math.floor(Math.random() * 25));
+                                ma = (Math.floor(Math.random() * 25));
+                            }
+                            this.srcs[m] = this.srcGuez;
+                            this.classes[m] = this.classeGuez;
+                            this.srcs[c] = this.srcChippo;
+                            this.classes[c] = this.classeGuez;
+                            this.srcs[b] = this.srcChips;
+                            this.classes[b] = this.classeGuez;
+                            this.srcs[ch] = this.srcChorizo;
+                            this.classes[ch] = this.classeGuez;
+                            this.srcs[s] = this.srcSalade;
+                            this.classes[s] = this.classeGuez;
+                            this.srcs[ma] = this.srcGaviscon;
+                            this.classes[ma] = this.classeGuez;
+                            this.guezProgress += 10;
+                            this.levelUp()
+                            this.scoring()
+                        }
+                         else if (this.srcs[n] !== this.srcGuez) {
+                            this.classes[n] = ' bg-red-600';
+                            setTimeout(()=>{if(this.srcs[n] == ''){this.classes[n] = ''}else{this.classes[n] = this.classeGuez}},100)
+                            this.score -= 100;
+                            this.guezProgress -= 10
+                        }} else if(this.level == 7 && this.switch==2){
                         if (this.srcs[n] == this.srcGaviscon) {
+                    this.clickableItem=this.clickableItems[0]
                             this.classTimeBarToggler()
                             this.switch=0
                             this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -646,6 +700,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         }
                     }else if(this.level == 8 ){
                         if (this.srcs[n] == this.srcGaviscon) {
+                    this.clickableItem=this.clickableItems[1]
+
                             this.classTimeBarToggler()
                             this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
                             this.classes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -704,6 +760,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                 else if (this.level == 9 && this.switch==0) {
                 
                         if (this.srcs[n] == this.srcGuez) {
+                    this.clickableItem=this.clickableItems[1]
+
                             this.classTimeBarToggler()
                             this.switch+=1
                             this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -763,6 +821,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         }
                     } else if(this.level == 9 && this.switch==1){
                             if (this.srcs[n] == this.srcGaviscon) {
+                    this.clickableItem=this.clickableItems[0]
                                 this.classTimeBarToggler()
                                 this.switch-=1
                                 this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
@@ -820,6 +879,8 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         }else if (this.level == 10 && this.switch==0) {
                 
                             if (this.srcs[n] == this.srcGuez) {
+                    this.clickableItem=this.clickableItems[2]
+
                                 this.classTimeBarToggler()
                                 this.switch+=1
                                 this.srcs = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];

@@ -26,7 +26,7 @@ const merguez=useCounterStore();
     <div id='center'>
 
     <h2>
-    cliquez sur la merguez
+    cliquez sur {{merguez.clickableItem}}
   </h2>
   </div>
     <div id='infoRight'>

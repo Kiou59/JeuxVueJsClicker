@@ -35,6 +35,7 @@ const merguez=useCounterStore();
     border: 4px solid white;
     border-radius : 10px;
     text-align:center;
+    padding:1em;
 
 }
 #popUp p 
