@@ -200,7 +200,7 @@ img{
 }
 #main{
     
-    margin: auto;
+    margin:3% auto ;
     width:30%;
     height:auto;
 

@@ -24,10 +24,11 @@ const merguez=useCounterStore();
     </div>
         </div>
     <div id='center'>
-
-    <h2>
-    cliquez sur {{merguez.clickableItem}}
+<div class="row">
+    <h2 >
+    cliquez sur <div class='hithere'>{{merguez.clickableItem.toUpperCase()}}</div>
   </h2>
+  </div>
   </div>
     <div id='infoRight'>
       <div>Niveau:{{merguez.level}}</div>
@@ -41,10 +42,26 @@ header{
   background-color:black;
   color:white;
 }
+header h1{
+  font-size:2rem;
+}
+header div{
+  font-size:2rem;
+}
 div {
 
   animation: color-change 1s infinite;
   font-family: 'Kanit', sans-serif;
+}
+.hithere {
+  animation: hithere 1s ease infinite;
+}
+@keyframes hithere {
+  30% { transform: scale(1.2); }
+  40%, 60% { transform: rotate(-20deg) scale(1.2); }
+  50% { transform: rotate(20deg) scale(1.2); }
+  70% { transform: rotate(0deg) scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 @media  (orientation: landscape) { 
