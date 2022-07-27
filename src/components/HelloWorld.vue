@@ -45,7 +45,8 @@ header{
 
 div {
 
-  animation: color-change 1s infinite;
+  animation: color-change 3s infinite; 
+
   font-family: 'Kanit', sans-serif;
 }
 .hithere {
@@ -61,42 +62,21 @@ div {
 
 @media  (orientation: landscape) { 
 @keyframes color-change {
-100%,0%{
-			color: rgb(255,0,0);
-		}
-		8%{
-			color: rgb(255,127,0);
-		}
-		16%{
-			color: rgb(255,255,0);
-		}
-		25%{
-			color: rgb(127,255,0);
-		}
-		33%{
-			color: rgb(0,255,0);
-		}
-		41%{
-			color: rgb(0,255,127);
-		}
-		50%{
-			color: rgb(0,255,255);
-		}
-		58%{
-			color: rgb(0,127,255);
-		}
-		66%{
-			color: rgb(0,0,255);
-		}
-		75%{
-			color: rgb(127,0,255);
-		}
-		83%{
-			color: rgb(255,0,255);
-		}
-		91%{
-			color: rgb(255,0,127);
-		}
+  from {
+    color: #FF0000;
+  }
+  10% {
+    color: #00FF00;
+  }
+  50% {
+    color: #0000FF;
+  }
+  75% {
+    color: #FF00FF;
+  }
+  100% {
+    color: #FFFF00;
+  }
 }
 .firstCase{
   animation: width-change 2.5s ease-in  reverse both running ;
@@ -120,9 +100,11 @@ div {
 }
 header h1{
   font-size:2rem;
+
 }
 header div{
   font-size:1.5rem;
+
 }
 
 }
@@ -140,42 +122,21 @@ header h1{
   font-size:1.3rem;
 }
 @keyframes color-change {
-100%,0%{
-			color: rgb(255,0,0);
-		}
-		8%{
-			color: rgb(255,127,0);
-		}
-		16%{
-			color: rgb(255,255,0);
-		}
-		25%{
-			color: rgb(127,255,0);
-		}
-		33%{
-			color: rgb(0,255,0);
-		}
-		41%{
-			color: rgb(0,255,127);
-		}
-		50%{
-			color: rgb(0,255,255);
-		}
-		58%{
-			color: rgb(0,127,255);
-		}
-		66%{
-			color: rgb(0,0,255);
-		}
-		75%{
-			color: rgb(127,0,255);
-		}
-		83%{
-			color: rgb(255,0,255);
-		}
-		91%{
-			color: rgb(255,0,127);
-		}
+  from {
+    color: #FF0000;
+  }
+  10% {
+    color: #00FF00;
+  }
+  50% {
+    color: #0000FF;
+  }
+  75% {
+    color: #FF00FF;
+  }
+  100% {
+    color: #FFFF00;
+  }
 }
 .firstCase{
   animation: width-change 2.5s ease-in  reverse both running ;
