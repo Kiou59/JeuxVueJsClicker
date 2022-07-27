@@ -58,7 +58,7 @@ popupsText:[`Votre objectif?
               On tente merguez-salade-Maalox?
                Enfin je pose la question, mais c'est pas comme si vous aviez le choix`], 
 // setup de la grille
-clickableItems:['la MERGUEZ','de la salade','le maalox'],
+clickableItems:['la MERGUEZ','la salade','le maalox'],
 clickableItem:'la MERGUEZ',
 //  tableau de classes initiale de toutes les div
 classes: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -893,7 +893,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                         }else if (this.level == 10 && this.switch==0) {
                 
                             if (this.srcs[n] == this.srcGuez) {
-                    this.clickableItem=this.clickableItems[2]
+                    this.clickableItem=this.clickableItems[1]
 
                                 this.classTimeBarToggler()
                                 this.switch+=1
@@ -937,7 +937,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                 this.score -= 100;
                                 this.guezProgress -= 10
                             }} else if(this.level == 10 && this.switch==1){
-                                this.clickableItem=this.clickableItems[1]
+                                this.clickableItem=this.clickableItems[2]
                                 if (this.srcs[n] == this.srcSalade) {
                                     this.classTimeBarToggler()
                                     this.switch+=1
