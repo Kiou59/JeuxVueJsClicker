@@ -261,6 +261,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
             }
         },
         reset(){
+            this.clickableItem='la merguez'
             this.guezProgress=10
             this.oldScore=0
             this.score= 0
@@ -928,6 +929,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                 this.score -= 100;
                                 this.guezProgress -= 10
                             }} else if(this.level == 10 && this.switch==1){
+                                this.clickableItem=this.clickableItems[1]
                                 if (this.srcs[n] == this.srcSalade) {
                                     this.classTimeBarToggler()
                                     this.switch+=1
@@ -984,6 +986,7 @@ srcs: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '
                                     
                                 }
                             }else if(this.level == 10 && this.switch==2){
+                                this.clickableItem=this.clickableItems[0]
                                 if (this.srcs[n] == this.srcGaviscon) {
                                     this.classTimeBarToggler()
                                     this.switch=0
