@@ -42,12 +42,7 @@ header{
   background-color:black;
   color:white;
 }
-header h1{
-  font-size:2rem;
-}
-header div{
-  font-size:2rem;
-}
+
 div {
 
   animation: color-change 1s infinite;
@@ -90,6 +85,12 @@ div {
   100% { width: 100px; 
     background-color:green;}
 }
+header h1{
+  font-size:2rem;
+}
+header div{
+  font-size:1.5rem;
+}
 
 }
 
@@ -98,6 +99,9 @@ div {
 @media  (orientation: portrait) { 
 header{
   margin-bottom:20%;
+}
+.hithere{
+  font-size:1.3rem;
 }
 @keyframes color-change {
   0% { color: red; }
@@ -109,7 +113,7 @@ header{
   min-height:5px;
   background-color:red;
   justify-self:self-end;
-  margin:auto
+  margin:1px auto;
 
 }
 @keyframes width-change {
